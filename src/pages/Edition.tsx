@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import timelineElements from "../assets/timelineElements";
+import { ImageWithPlaceholder } from "../components/ImageWithPlaceholder";
 
 const edition1ImageImports = import.meta.glob(
   "../assets/Edition1/LLArchive*.jpg",
   { eager: true, import: "default" }
 );
-
 const edition2ImageImports = import.meta.glob(
   "../assets/Edition2/LLArchive*.jpg",
   { eager: true, import: "default" }
@@ -50,11 +50,10 @@ export default function EditionPage() {
       {images.length > 0 && (
         <div className="columns-1 sm:columns-2 md:columns-3 gap-4 px-4 mt-6 space-y-4">
           {images.map((src, index) => (
-            <img
+            <ImageWithPlaceholder
               key={index}
               src={src}
               alt={`${edition.title} image ${index + 1}`}
-              className="w-full mb-4 rounded-md border border-[var(--color-link)] break-inside-avoid"
             />
           ))}
         </div>
