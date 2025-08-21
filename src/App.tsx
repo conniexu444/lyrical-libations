@@ -5,6 +5,7 @@ import logo from "./assets/logo.png";
 import { routes } from "./routes/routes";
 import EditionPage from "./pages/Edition";
 import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
@@ -35,8 +36,12 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <ScrollToTop />
             <Routes>
-              {/* Static routes */}
-              {routes.map(({ href, element }) => (
+              {/* Explicit home route */}
+              <Route index element={<Home />} />
+              <Route path="/" element={<Home />} />
+              
+              {/* Other static routes (excluding home) */}
+              {routes.filter(({ href }) => href !== "/").map(({ href, element }) => (
                 <Route key={href} path={href} element={element} />
               ))}
 
