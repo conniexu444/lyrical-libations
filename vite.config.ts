@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: "/lyrical-libations/", // <-- Use your repo name here
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? "/lyrical-libations/" : "/", // Use repo name only for production build
   plugins: [
     react(), 
     tailwindcss()
   ],
-})
+}))
