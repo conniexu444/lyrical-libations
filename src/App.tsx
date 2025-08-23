@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import logo from "./assets/logo.png";
+import logo from "./assets/cheers.png";
 import { routes } from "./routes/routes";
 import EditionPage from "./pages/Edition";
 import ScrollToTop from "./components/ScrollToTop";
@@ -17,7 +17,7 @@ export default function App() {
               <img
                 src={logo}
                 alt="Lyrical Libations logo"
-                className="w-8 h-8 rounded-full object-contain"
+                className="w-10 h-10 rounded-full object-contain"
               />
               <h1 className="text-2xl font-[var(--font-display)]">
                 Lyrical Libations
@@ -26,7 +26,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="w-full flex justify-center py-6">
+        <div className="w-full flex justify-center py-4">
           <div className="w-2/3">
             <Nav />
           </div>
@@ -36,16 +36,15 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <ScrollToTop />
             <Routes>
-              {/* Explicit home route */}
               <Route index element={<Home />} />
               <Route path="/" element={<Home />} />
-              
-              {/* Other static routes (excluding home) */}
-              {routes.filter(({ href }) => href !== "/").map(({ href, element }) => (
-                <Route key={href} path={href} element={element} />
-              ))}
 
-              {/* Dynamic archive route */}
+              {routes
+                .filter(({ href }) => href !== "/")
+                .map(({ href, element }) => (
+                  <Route key={href} path={href} element={element} />
+                ))}
+
               <Route path="/archives/:id" element={<EditionPage />} />
             </Routes>
           </div>
