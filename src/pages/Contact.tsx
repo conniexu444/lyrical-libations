@@ -1,20 +1,19 @@
-import stars from "../assets/star.png";
+import drinks from "../assets/drinks.png";
+import music from "../assets/music.png";
 import { Button } from "../components/core/button";
 
 export default function Contact() {
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-font)] font-[var(--font-body)] p-6 relative overflow-hidden">
-      {/* Animated Stars Image - Top Right */}
       <img
-        src={stars}
-        alt="Stars"
+        src={drinks}
+        alt="Drinks"
         className="hidden sm:block absolute top-10 right-20 w-32 md:w-40 animate-bounce-slow pointer-events-none select-none"
       />
 
-      {/* Animated Stars Image - Bottom Left */}
       <img
-        src={stars}
-        alt="Stars"
+        src={music}
+        alt="Music"
         className="hidden sm:block absolute bottom-10 left-20 w-32 md:w-40 animate-bounce-slow pointer-events-none select-none"
       />
 
