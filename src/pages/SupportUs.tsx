@@ -1,7 +1,6 @@
 import React from "react";
 import { SUPPORT_DATA } from "../data/supportData";
 import ArtistSupportCard from "../components/ArtistSupportCard";
-import ProjectSupportSection from "../components/ProjectSupportSection";
 
 const SupportUs: React.FC = () => {
   return (
@@ -23,8 +22,6 @@ const SupportUs: React.FC = () => {
             ))}
           </div>
         </section>
-
-        <ProjectSupportSection projectSupport={SUPPORT_DATA.projectSupport} />
       </div>
     </main>
   );

@@ -1,4 +1,5 @@
 import stars from "../assets/star.png";
+import { Button } from "../components/core/button";
 
 export default function Contact() {
   return (
@@ -24,7 +25,8 @@ export default function Contact() {
           </h1>
 
           <p className="mb-6 text-lg">
-            Want to collaborate, host us, or just say hi? We'd love to hear from you.
+            Want to collaborate, host us, or just say hi? We'd love to hear from
+            you.
           </p>
 
           <form className="space-y-4">
@@ -65,14 +67,8 @@ export default function Contact() {
             </div>
 
             <div className="flex justify-center">
-  <button
-    type="submit"
-    className="bg-[var(--color-bg)] border px-4 py-2 rounded hover:bg-green-300 transition"
-  >
-    Send Message
-  </button>
-</div>
-
+              <Button />
+            </div>
           </form>
         </div>
       </div>
