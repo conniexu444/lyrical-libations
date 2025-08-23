@@ -1,8 +1,7 @@
-import React from 'react';
-import { SUPPORT_DATA } from '../data/supportData';
-import ArtistSupportCard from '../components/ArtistSupportCard';
-import ProjectSupportSection from '../components/ProjectSupportSection';
-import SecurityNotice from '../components/SecurityNotice';
+import React from "react";
+import { SUPPORT_DATA } from "../data/supportData";
+import ArtistSupportCard from "../components/ArtistSupportCard";
+import ProjectSupportSection from "../components/ProjectSupportSection";
 
 const SupportUs: React.FC = () => {
   return (
@@ -12,14 +11,6 @@ const SupportUs: React.FC = () => {
           <h1 className="text-3xl font-[var(--font-display)] mb-10">
             Support the Artists
           </h1>
-          <div className="space-y-4">
-            <p className="text-lg">
-              Lyrical Libations is an independent artistic project created with love by Coco and Gabby.
-            </p>
-            <p className="text-base text-[var(--color-link)]">
-              Your support helps us continue creating immersive experiences and bringing our art to life.
-            </p>
-          </div>
         </header>
 
         <section className="mb-12" aria-labelledby="artist-support-heading">
@@ -34,12 +25,9 @@ const SupportUs: React.FC = () => {
         </section>
 
         <ProjectSupportSection projectSupport={SUPPORT_DATA.projectSupport} />
-
-        <SecurityNotice />
       </div>
     </main>
   );
 };
 
 export default SupportUs;
-  
