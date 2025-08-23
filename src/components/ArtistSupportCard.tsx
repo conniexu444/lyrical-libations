@@ -1,5 +1,4 @@
 import React from "react";
-import { Heart } from "lucide-react";
 import type { Artist } from "../types/support";
 import DonationButton from "./DonationButton";
 
