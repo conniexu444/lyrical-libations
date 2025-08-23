@@ -1,6 +1,6 @@
 import React from "react";
 import type { Artist } from "../types/support";
-import DonationButton from "./DonationButton";
+import { Button } from "./core/button";
 
 interface ArtistSupportCardProps {
   artist: Artist;
@@ -18,13 +18,7 @@ const ArtistSupportCard: React.FC<ArtistSupportCardProps> = React.memo(
         </div>
 
         <div className="space-y-4">
-          {artist.donationLinks.map((link, index) => (
-            <DonationButton
-              key={`${artist.id}-${link.platform}`}
-              donationLink={link}
-              variant={index === 0 ? "primary" : "secondary"}
-            />
-          ))}
+          <Button type="button">Donate Here</Button>
         </div>
       </div>
     );
