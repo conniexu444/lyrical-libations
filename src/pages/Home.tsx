@@ -8,7 +8,7 @@ const Home = React.memo(() => {
         <img
           src={banner}
           alt="Lyrical Libations - A celebration of poetry, music, and community"
-          className="w-full h-auto max-h-[600px] object-cover rounded-lg"
+          className="w-4/5 mx-auto h-auto max-h-[600px] object-cover rounded-lg"
           loading="eager"
         />
       </div>
@@ -16,6 +16,6 @@ const Home = React.memo(() => {
   );
 });
 
-Home.displayName = 'Home';
+Home.displayName = "Home";
 
 export default Home;
