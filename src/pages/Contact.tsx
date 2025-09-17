@@ -1,19 +1,19 @@
-import stars from "../assets/star.png";
+import drinks from "../assets/drinks.png";
+import music from "../assets/music.png";
+import { Button } from "../components/core/button";
 
 export default function Contact() {
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-font)] font-[var(--font-body)] p-6 relative overflow-hidden">
-      {/* Animated Stars Image - Top Right */}
       <img
-        src={stars}
-        alt="Stars"
+        src={drinks}
+        alt="Drinks"
         className="hidden sm:block absolute top-10 right-20 w-32 md:w-40 animate-bounce-slow pointer-events-none select-none"
       />
 
-      {/* Animated Stars Image - Bottom Left */}
       <img
-        src={stars}
-        alt="Stars"
+        src={music}
+        alt="Music"
         className="hidden sm:block absolute bottom-10 left-20 w-32 md:w-40 animate-bounce-slow pointer-events-none select-none"
       />
 
@@ -24,7 +24,8 @@ export default function Contact() {
           </h1>
 
           <p className="mb-6 text-lg">
-            Want to collaborate, host us, or just say hi? We'd love to hear from you.
+            Want to collaborate, host us, or just say hi? We'd love to hear from
+            you.
           </p>
 
           <form className="space-y-4">
@@ -65,14 +66,8 @@ export default function Contact() {
             </div>
 
             <div className="flex justify-center">
-  <button
-    type="submit"
-    className="bg-[var(--color-bg)] border px-4 py-2 rounded hover:bg-green-300 transition"
-  >
-    Send Message
-  </button>
-</div>
-
+              <Button />
+            </div>
           </form>
         </div>
       </div>
