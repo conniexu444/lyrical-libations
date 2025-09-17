@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { routes } from "../routes/routes";
 
 export default function Nav() {
@@ -9,7 +10,49 @@ export default function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [isOpen]);
+
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.2
+      }
+    },
+    open: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: {
+      opacity: 0,
+      y: 20
+    },
+    open: {
+      opacity: 1,
+      y: 0
+    }
+  };
+
+  const containerVariants = {
+    closed: {},
+    open: {
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
 
   return (
     <>
@@ -42,24 +85,42 @@ export default function Nav() {
               );
             })}
           </nav>
-
-          {/* Mobile Nav - toggled */}
-          {isOpen && (
-            <nav className="md:hidden fixed top-16 left-0 w-full bg-[var(--color-bg)] p-6 flex flex-col items-center gap-4 text-lg font-medium z-40">
-              {routes.map((link) => (
-                <Link
-                  key={link.title}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-[var(--color-link)] hover:underline underline-offset-4"
-                >
-                  {link.title}
-                </Link>
-              ))}
-            </nav>
-          )}
         </div>
       </header>
+
+      {/* Full-screen Mobile Nav with Animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="md:hidden fixed inset-0 bg-[var(--color-bg)] z-40 flex items-center justify-center"
+          >
+            <motion.nav
+              variants={containerVariants}
+              className="flex flex-col items-center gap-8 text-2xl font-[var(--font-display)]"
+            >
+              {routes.map((link, index) => (
+                <motion.div
+                  key={link.title}
+                  variants={itemVariants}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-[var(--color-link)] hover:underline underline-offset-4 transition-all duration-300 hover:scale-105"
+                  >
+                    {link.title}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
