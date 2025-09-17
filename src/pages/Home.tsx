@@ -1,15 +1,21 @@
+import React from "react";
 import banner from "../assets/banner.png";
 
-export default function Home() {
+const Home = React.memo(() => {
   return (
-    <div>
+    <main role="main">
       <div className="w-full py-10">
         <img
           src={banner}
-          alt="Lyrical Libations banner"
-          className="w-full h-auto max-h-[600px] object-cover"
+          alt="Lyrical Libations - A celebration of poetry, music, and community"
+          className="w-full h-auto max-h-[600px] object-cover rounded-lg"
+          loading="eager"
         />
       </div>
-    </div>
+    </main>
   );
-}
+});
+
+Home.displayName = 'Home';
+
+export default Home;

@@ -1,4 +1,6 @@
+import React, { useMemo } from "react";
 import { useParams } from "react-router-dom";
+import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
 import { ImageWithPlaceholder } from "../components/ImageWithPlaceholder";
 
@@ -11,7 +13,7 @@ const edition2ImageImports = import.meta.glob(
   { eager: true, import: "default" }
 );
 
-const editionImages: { [key: string]: string[] } = {
+const editionImages: Record<string, string[]> = {
   "Edition-1": Object.entries(edition1ImageImports)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([, path]) => path as string),
@@ -21,9 +23,18 @@ const editionImages: { [key: string]: string[] } = {
     .map(([, path]) => path as string),
 };
 
-export default function EditionPage() {
-  const { id } = useParams();
-  const edition = timelineElements.find((e) => e.id === id);
+const EditionPage = React.memo(() => {
+  const { id } = useParams<{ id: string }>();
+
+  const edition = useMemo(
+    () => timelineElements.find((e: TimelineElement) => e.id === id),
+    [id]
+  );
+
+  const images = useMemo(
+    () => (edition ? editionImages[edition.id] || [] : []),
+    [edition]
+  );
 
   if (!edition) {
     return (
@@ -34,8 +45,6 @@ export default function EditionPage() {
       </div>
     );
   }
-
-  const images = editionImages[edition.id] || [];
 
   return (
     <div className="py-10">
@@ -60,4 +69,8 @@ export default function EditionPage() {
       )}
     </div>
   );
-}
+});
+
+EditionPage.displayName = 'EditionPage';
+
+export default EditionPage;
