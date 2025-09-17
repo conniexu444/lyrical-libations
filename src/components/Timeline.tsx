@@ -2,8 +2,7 @@ import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
-import schoolIcon from "../assets/email-icon.png";
-import workIcon from "../assets/email-icon.png";
+import musicIcon from "../assets/MusicNotes2.PNG";
 
 interface TimelineProps {
   defaultColor?: string;
@@ -28,9 +27,9 @@ const Timeline = React.memo(({ defaultColor }: TimelineProps) => {
             <div className="w-4/5 text-[var(--color-text)]">{element.date}</div>
             <div className={`${colorClass} w-px h-full translate-x-5 translate-y-10 opacity-30`} />
             <img
-              src={element.icon === "school" ? schoolIcon : workIcon}
-              alt={`${element.icon} icon`}
-              className="bg-[var(--color-link)] w-10 p-1 rounded-lg z-20"
+              src={musicIcon}
+              alt="Music notes icon"
+              className="w-10 p-1 rounded-lg z-20 border border-[var(--color-link)]"
             />
             <div className={`${colorClass} h-px w-8 translate-y-5 opacity-30`} />
           </div>
