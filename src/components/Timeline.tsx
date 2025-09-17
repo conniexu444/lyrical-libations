@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
-import musicIcon from "../assets/MusicNotes2.png";
+import musicIcon from "../assets/musicNotesIcon.png";
 
 interface TimelineProps {
   defaultColor?: string;
