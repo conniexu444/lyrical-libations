@@ -1,5 +1,5 @@
 import React from "react";
-import violin from "../assets/Violin.PNG";
+import violin from "../assets/Violin.png";
 import { Button } from "../components/core/button";
 
 const SupportUs = React.memo(() => {
@@ -22,12 +22,19 @@ const SupportUs = React.memo(() => {
 
           {/* Text Content */}
           <div className="flex-1">
-            <h2 className="text-3xl font-[var(--font-display)] mb-6">Why Support Us?</h2>
+            <h2 className="text-3xl font-[var(--font-display)] mb-6">
+              Why Support Us?
+            </h2>
             <p className="text-[var(--color-text)] mb-6 text-lg leading-relaxed">
-              Your support helps us continue creating immersive experiences that blend poetry, music, and community. Every contribution directly supports the artists and enables us to bring more magical events to life.
+              Your support helps us continue creating immersive experiences that
+              blend poetry, music, and community. Every contribution directly
+              supports the artists and enables us to bring more magical events
+              to life.
             </p>
             <p className="text-[var(--color-text)] mb-8 text-lg leading-relaxed">
-              From venue costs to artist fees, your generosity makes Lyrical Libations possible. Join us in celebrating the intersection of sound, ritual, and storytelling.
+              From venue costs to artist fees, your generosity makes Lyrical
+              Libations possible. Join us in celebrating the intersection of
+              sound, ritual, and storytelling.
             </p>
             <div className="flex justify-center">
               <Button>Donate Here</Button>
@@ -39,6 +46,6 @@ const SupportUs = React.memo(() => {
   );
 });
 
-SupportUs.displayName = 'SupportUs';
+SupportUs.displayName = "SupportUs";
 
 export default SupportUs;
