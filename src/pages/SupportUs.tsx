@@ -1,7 +1,8 @@
+import React from "react";
 import { SUPPORT_DATA } from "../data/supportData";
 import ArtistSupportCard from "../components/ArtistSupportCard";
 
-const SupportUs: React.FC = () => {
+const SupportUs = React.memo(() => {
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
       <div className="max-w-5xl mx-auto">
@@ -24,6 +25,8 @@ const SupportUs: React.FC = () => {
       </div>
     </main>
   );
-};
+});
+
+SupportUs.displayName = 'SupportUs';
 
 export default SupportUs;

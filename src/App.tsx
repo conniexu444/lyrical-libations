@@ -41,8 +41,8 @@ export default function App() {
 
               {routes
                 .filter(({ href }) => href !== "/")
-                .map(({ href, element }) => (
-                  <Route key={href} path={href} element={element} />
+                .map(({ href, component: Component }) => (
+                  <Route key={href} path={href} element={<Component />} />
                 ))}
 
               <Route path="/archives/:id" element={<EditionPage />} />
