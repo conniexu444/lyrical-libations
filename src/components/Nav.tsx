@@ -1,12 +1,20 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { routes } from "../routes/routes";
 
-export default function Nav() {
+const Nav = React.memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen(prev => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
@@ -15,7 +23,7 @@ export default function Nav() {
     };
   }, [isOpen]);
 
-  const menuVariants = {
+  const menuVariants = useMemo(() => ({
     closed: {
       opacity: 0,
       scale: 0.95,
@@ -30,9 +38,9 @@ export default function Nav() {
         duration: 0.3
       }
     }
-  };
+  }), []);
 
-  const itemVariants = {
+  const itemVariants = useMemo(() => ({
     closed: {
       opacity: 0,
       y: 20
@@ -41,9 +49,9 @@ export default function Nav() {
       opacity: 1,
       y: 0
     }
-  };
+  }), []);
 
-  const containerVariants = {
+  const containerVariants = useMemo(() => ({
     closed: {},
     open: {
       transition: {
@@ -51,14 +59,15 @@ export default function Nav() {
         delayChildren: 0.1
       }
     }
-  };
+  }), []);
 
   return (
     <>
       {/* Hamburger toggle - pinned in top right corner on mobile */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleMenu}
         aria-label="Toggle menu"
+        aria-expanded={isOpen}
         className="fixed top-4 right-4 z-50 md:hidden text-[var(--color-link)] bg-[var(--color-bg)] p-2 rounded-md"
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,7 +118,7 @@ export default function Nav() {
                 >
                   <Link
                     to={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeMenu}
                     className="text-[var(--color-link)] hover:underline underline-offset-4 transition-all duration-300 hover:scale-105"
                   >
                     {link.title}
@@ -122,4 +131,8 @@ export default function Nav() {
       </AnimatePresence>
     </>
   );
-}
+});
+
+Nav.displayName = 'Nav';
+
+export default Nav;

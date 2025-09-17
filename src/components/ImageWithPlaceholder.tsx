@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 interface ImageWithPlaceholderProps {
   src: string;
@@ -7,13 +7,17 @@ interface ImageWithPlaceholderProps {
   loading?: "eager" | "lazy";
 }
 
-export function ImageWithPlaceholder({
+export const ImageWithPlaceholder = React.memo<ImageWithPlaceholderProps>(({
   src,
   alt,
   className = "",
   loading = "lazy",
-}: ImageWithPlaceholderProps) {
+}) => {
   const [loaded, setLoaded] = useState(false);
+
+  const handleLoad = useCallback(() => {
+    setLoaded(true);
+  }, []);
 
   return (
     <div
@@ -26,11 +30,13 @@ export function ImageWithPlaceholder({
         src={src}
         alt={alt}
         loading={loading}
-        onLoad={() => setLoaded(true)}
-        className={`w-full h-auto rounded-md border border-[var(--color-link)] object-cover ${
+        onLoad={handleLoad}
+        className={`w-full h-auto rounded-md border border-[var(--color-link)] object-cover transition-opacity duration-300 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
       />
     </div>
   );
-}
+});
+
+ImageWithPlaceholder.displayName = 'ImageWithPlaceholder';
