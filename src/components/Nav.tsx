@@ -68,7 +68,7 @@ const Nav = React.memo(() => {
         onClick={toggleMenu}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
-        className="fixed top-4 right-4 z-50 md:hidden text-[var(--color-link)] bg-[var(--color-bg)] p-2 rounded-md"
+        className="fixed top-4 right-4 z-50 md:hidden text-[var(--color-link)] p-2"
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
