@@ -1,5 +1,5 @@
 import React from "react";
-import violin from "../assets/Violin.png";
+import violin from "../assets/violinAlone.png";
 import { Button } from "../components/core/button";
 
 const SupportUs = React.memo(() => {
