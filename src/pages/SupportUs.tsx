@@ -1,4 +1,3 @@
-import React from "react";
 import { SUPPORT_DATA } from "../data/supportData";
 import ArtistSupportCard from "../components/ArtistSupportCard";
 
