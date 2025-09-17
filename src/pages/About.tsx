@@ -1,5 +1,5 @@
 import React from "react";
-import cheersCello from "../assets/cheersCello.png";
+import cheersCello from "../assets/celloWithDrinks.png";
 
 const About = React.memo(() => {
   return (
