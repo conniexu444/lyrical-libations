@@ -6,7 +6,7 @@ const About = React.memo(() => {
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-[var(--font-display)] mb-10 text-center">
-          Meet the Artists
+          About Us
         </h1>
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
@@ -19,17 +19,16 @@ const About = React.memo(() => {
           </div>
           <div className="flex-1">
             <h2 className="text-3xl font-[var(--font-display)] mb-6">
-              Coco & Gabby
+              Coco & Gaby
             </h2>
             <p className="text-[var(--color-text)] mb-6 text-lg leading-relaxed">
-              Coco is a multidisciplinary artist whose work explores the
-              intersection of sound, ritual, and sensory storytelling. Her
-              performances are layered with poetry, rhythm, and community magic.
+              Coco and Gaby are two NYC based musicians who want to bring
+              classical music to bars. Lyrical Libations started as a way to
+              make classical music more accessible.
             </p>
             <p className="text-[var(--color-text)] text-lg leading-relaxed">
-              Gabby is a sonic explorer and producer blending analog textures
-              with ethereal vocals. Her installations and soundscapes invite
-              audiences into immersive worlds of emotion and memory.
+              This would be another paragraph about Lyrical Libations as a
+              whole.
             </p>
           </div>
         </div>
