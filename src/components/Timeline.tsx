@@ -35,7 +35,7 @@ const Timeline = React.memo(({ defaultColor }: TimelineProps) => {
             <img
               src={musicIcon}
               alt="Music notes icon"
-              className="w-10 p-1 rounded-lg z-20 border border-[var(--color-link)]"
+              className="w-10 p-1 rounded-lg z-20 border border-[var(--color-link)] bg-[var(--color-bg)]"
             />
             <div
               className={`${colorClass} h-px w-8 translate-y-5 opacity-30`}
