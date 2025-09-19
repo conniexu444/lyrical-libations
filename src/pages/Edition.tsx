@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
 import { ImageWithPlaceholder } from "../components/ImageWithPlaceholder";
+import { useIsMobile } from "../hooks/useMediaQuery";
+import { optimizeImagesForMobile } from "../utils/randomSelection";
 
 const edition1ImageImports = import.meta.glob(
   "../assets/Edition1/LLArchive*.jpg",
@@ -25,16 +27,27 @@ const editionImages: Record<string, string[]> = {
 
 const EditionPage = React.memo(() => {
   const { id } = useParams<{ id: string }>();
+  const isMobile = useIsMobile();
 
   const edition = useMemo(
     () => timelineElements.find((e: TimelineElement) => e.id === id),
     [id]
   );
 
-  const images = useMemo(
+  const allImages = useMemo(
     () => (edition ? editionImages[edition.id] || [] : []),
     [edition]
   );
+
+  const images = useMemo(() => {
+    if (!allImages.length) return [];
+
+    return optimizeImagesForMobile(allImages, isMobile, {
+      maxMobileImages: 5,
+      seed: edition?.id || 'default'
+    });
+  }, [allImages, isMobile, edition?.id]);
+
 
   if (!edition) {
     return (
@@ -57,15 +70,30 @@ const EditionPage = React.memo(() => {
       </p>
 
       {images.length > 0 && (
-        <div className="columns-1 sm:columns-2 md:columns-3 gap-4 px-4 mt-6 space-y-4">
-          {images.map((src, index) => (
-            <ImageWithPlaceholder
-              key={index}
-              src={src}
-              alt={`${edition.title} image ${index + 1}`}
-            />
-          ))}
-        </div>
+        <>
+          {isMobile && allImages.length > images.length && (
+            <div className="text-center text-sm text-[var(--color-text)] opacity-70 mb-4 px-4">
+              Showing {images.length} of {allImages.length} images
+              <span className="block text-xs mt-1">
+                View on desktop to see all images
+              </span>
+            </div>
+          )}
+          <div className="columns-1 sm:columns-2 md:columns-3 gap-4 px-4 mt-6 space-y-4">
+            {images.map((src, index) => {
+              // Generate stable key based on image path to prevent unnecessary re-renders
+              const imageKey = src.split('/').pop()?.split('.')[0] || `image-${index}`;
+              return (
+                <ImageWithPlaceholder
+                  key={imageKey}
+                  src={src}
+                  alt={`${edition.title} image ${index + 1}`}
+                  loading={index < 3 ? "eager" : "lazy"}
+                />
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );
