@@ -12,14 +12,14 @@ const Footer = React.memo(() => {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-70 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--color-link)] rounded"
+            className="hover:opacity-70 transition-opacity focus:outline-none"
             aria-label="Follow us on Instagram"
           >
             Instagram
           </a>
           <a
             href="mailto:hello@lyricalLibations.com"
-            className="hover:opacity-70 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--color-link)] rounded"
+            className="hover:opacity-70 transition-opacity focus:outline-none"
             aria-label="Send us an email"
           >
             Email
@@ -28,7 +28,7 @@ const Footer = React.memo(() => {
             href="https://youtube.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-70 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--color-link)] rounded"
+            className="hover:opacity-70 transition-opacity focus:outline-none"
             aria-label="Subscribe to our YouTube channel"
           >
             YouTube
