@@ -21,11 +21,11 @@ export function useMediaQuery(query: string, debounceMs: number = 100): boolean 
     if (typeof window === 'undefined') return;
 
     const mediaQuery = window.matchMedia(query);
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number;
 
     const handleChange = (event: MediaQueryListEvent) => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
         setMatches(event.matches);
       }, debounceMs);
     };
@@ -37,7 +37,7 @@ export function useMediaQuery(query: string, debounceMs: number = 100): boolean 
     mediaQuery.addEventListener('change', handleChange);
 
     return () => {
-      clearTimeout(timeoutId);
+      window.clearTimeout(timeoutId);
       mediaQuery.removeEventListener('change', handleChange);
     };
   }, [query, debounceMs]);
