@@ -1,5 +1,5 @@
 import React from "react";
-import cheersCello from "../assets/celloWithDrinks.png";
+import banner from "../assets/banner.png";
 
 const About = React.memo(() => {
   return (
@@ -12,7 +12,7 @@ const About = React.memo(() => {
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
           <div className="flex-shrink-0">
             <img
-              src={cheersCello}
+              src={banner}
               alt="Coco and Gabby cheering with cello"
               className="w-3/4 mx-auto md:w-80 lg:w-96 h-auto rounded-lg object-cover"
             />
