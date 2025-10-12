@@ -15,13 +15,13 @@ const Home = React.memo(() => {
             />
           </div>
           <div className="flex-1 space-y-6 mt-12">
-            <p className="text-[var(--color-text)] text-5xl" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
+            <p className="text-[var(--color-text)] text-5xl text-left" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
               This is a creative safe space for both the performers and audience.
             </p>
-            <p className="text-[var(--color-text)] text-4xl" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
+            <p className="text-[var(--color-text)] text-4xl text-right" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
               A place where we feel open to taking risks and being emotionally free
             </p>
-            <p className="text-[var(--color-text)] text-3xl" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
+            <p className="text-[var(--color-text)] text-3xl text-left" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
               A place for playfulness, vulnerability, and connection!
             </p>
           </div>
