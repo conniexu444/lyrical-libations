@@ -14,16 +14,6 @@ export const routes: RouteConfig[] = [
     component: Home,
   },
   {
-    title: "Support Us",
-    href: "/support",
-    component: SupportUs,
-  },
-  {
-    title: "Contact Us",
-    href: "/contact",
-    component: Contact,
-  },
-  {
     title: "About",
     href: "/about",
     component: About,
@@ -37,5 +27,15 @@ export const routes: RouteConfig[] = [
     title: "Archives",
     href: "/archives",
     component: Archives,
+  },
+  {
+    title: "Support Us",
+    href: "/support",
+    component: SupportUs,
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+    component: Contact,
   },
 ];
