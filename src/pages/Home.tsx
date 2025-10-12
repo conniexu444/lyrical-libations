@@ -14,7 +14,7 @@ const Home = React.memo(() => {
               loading="eager"
             />
           </div>
-          <div className="flex-1 space-y-6 mt-12">
+          <div className="flex-1 space-y-10 mt-12">
             <p className="text-[var(--color-text)] text-5xl text-left" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
               This is a creative safe space for both the performers and audience.
             </p>
