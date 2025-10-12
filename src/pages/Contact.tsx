@@ -22,10 +22,6 @@ const Contact = React.memo(() => {
 
       <div className="max-w-2xl mx-auto">
         <div className="bg-[var(--color-footer)] border border-[var(--color-link)] rounded-2xl shadow-md p-8">
-          <h1 className="text-3xl font-[var(--font-display)] mb-6 text-center">
-            Contact Us
-          </h1>
-
           <p className="mb-6 text-lg">
             Want to collaborate, host us, or just say hi? We'd love to hear from
             you.
