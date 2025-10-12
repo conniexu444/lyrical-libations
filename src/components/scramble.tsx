@@ -32,7 +32,7 @@ const ScrambleHover = memo(({
   const [revealedIndices] = useState(new Set<number>());
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: number | undefined;
     let currentIteration = 0;
 
     const getNextIndex = () => {
@@ -132,21 +132,21 @@ const ScrambleHover = memo(({
 
     if (isHovering) {
       setIsScrambling(true);
-      interval = setInterval(() => {
+      interval = window.setInterval(() => {
         if (sequential) {
           if (revealedIndices.size < text.length) {
             const nextIndex = getNextIndex();
             revealedIndices.add(nextIndex);
             setDisplayText(shuffleText(text));
           } else {
-            clearInterval(interval);
+            window.clearInterval(interval);
             setIsScrambling(false);
           }
         } else {
           setDisplayText(shuffleText(text));
           currentIteration++;
           if (currentIteration >= maxIterations) {
-            clearInterval(interval);
+            window.clearInterval(interval);
             setIsScrambling(false);
             setDisplayText(text);
           }
@@ -158,8 +158,8 @@ const ScrambleHover = memo(({
     }
 
     return () => {
-      if (interval) {
-        clearInterval(interval);
+      if (interval !== undefined) {
+        window.clearInterval(interval);
       }
     };
   }, [
