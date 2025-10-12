@@ -6,10 +6,6 @@ const SupportUs = React.memo(() => {
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-[var(--font-display)] mb-10 text-center">
-          Support the Artists
-        </h1>
-
         <div className="flex flex-col md:flex-row-reverse gap-8 md:gap-12 items-center">
           {/* Image - on right for desktop, top for mobile */}
           <div className="flex-shrink-0">
