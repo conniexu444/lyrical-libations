@@ -6,28 +6,20 @@ import { routes } from "./routes/routes";
 import EditionPage from "./pages/Edition";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
+import AnimatedTitle from "./components/AnimatedTitle";
 
 export default function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
-        <div className="w-full py-4 px-4">
-          <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="Lyrical Libations logo"
-                className="w-10 h-10 rounded-full object-contain"
-              />
-              <h1 className="text-2xl font-[var(--font-display)]">
-                Lyrical Libations
-              </h1>
+        <div className="w-full px-16 pt-8 flex justify-between items-center">
+          <Link to="/" className="flex-shrink-0">
+            <img src={logo} alt="Lyrical Libations" className="w-16 h-16 hover:opacity-70 transition-opacity" />
+          </Link>
+          <div className="flex flex-col items-end">
+            <Link to="/">
+              <AnimatedTitle />
             </Link>
-          </div>
-        </div>
-
-        <div className="w-full flex justify-center py-4">
-          <div className="w-2/3">
             <Nav />
           </div>
         </div>
