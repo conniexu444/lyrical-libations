@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import logo from "./assets/cheers.png";
 import { routes } from "./routes/routes";
 import EditionPage from "./pages/Edition";
+import ShowDetail from "./pages/ShowDetail";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import AnimatedTitle from "./components/AnimatedTitle";
@@ -38,6 +39,7 @@ export default function App() {
                 ))}
 
               <Route path="/archives/:id" element={<EditionPage />} />
+              <Route path="/shows/:date" element={<ShowDetail />} />
             </Routes>
           </div>
         </main>
