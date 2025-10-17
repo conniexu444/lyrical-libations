@@ -14,7 +14,7 @@ interface ScrambleHoverProps {
   scrambledClassName?: string;
 }
 
-const ScrambleHover = memo(({
+const ScrambleHover = memo<ScrambleHoverProps>(({
   text,
   scrambleSpeed = 50,
   maxIterations = 10,
@@ -25,7 +25,7 @@ const ScrambleHover = memo(({
   sequential = false,
   revealDirection = "start",
   ...props
-}: ScrambleHoverProps) => {
+}) => {
   const [displayText, setDisplayText] = useState(text);
   const [isHovering, setIsHovering] = useState(false);
   const [isScrambling, setIsScrambling] = useState(false);
@@ -199,5 +199,7 @@ const ScrambleHover = memo(({
     </motion.span>
   );
 });
+
+ScrambleHover.displayName = "ScrambleHover";
 
 export default ScrambleHover;

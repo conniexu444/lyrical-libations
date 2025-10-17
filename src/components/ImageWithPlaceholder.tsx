@@ -24,7 +24,9 @@ export const ImageWithPlaceholder = React.memo<ImageWithPlaceholderProps>(({
       className={`relative w-full mb-4 break-inside-avoid content-visibility-auto min-h-[250px] ${className}`}
     >
       {!loaded && (
-        <div className="absolute inset-0 bg-neutral-200 dark:bg-rose-100/10 rounded-md animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 dark:from-rose-100/10 dark:via-rose-100/20 dark:to-rose-100/10 rounded-md overflow-hidden">
+          <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent" />
+        </div>
       )}
       <img
         src={src}

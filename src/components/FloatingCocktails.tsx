@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo, useCallback } from "react";
+import { useIsMobile } from "../hooks/useMediaQuery";
 import flutes from "../assets/Flutes3.PNG";
 import martini from "../assets/Martini.PNG";
 
@@ -12,79 +13,73 @@ interface Cocktail {
   scale: number;
 }
 
-const FloatingCocktails = () => {
+interface MousePosition {
+  x: number;
+  y: number;
+}
+
+const IMAGES = [flutes, martini] as const;
+const COCKTAIL_COUNT = 50;
+const TARGET_SPEED = 0.3;
+const REPEL_DISTANCE = 150;
+const TITLE_HEIGHT = 100;
+
+const FloatingCocktails = memo(() => {
   const [cocktails, setCocktails] = useState<Cocktail[]>([]);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isMobile, setIsMobile] = useState(false);
+  const [mousePos, setMousePos] = useState<MousePosition>({ x: 0, y: 0 });
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | undefined>(undefined);
 
-  const images = [flutes, martini];
-  const cocktailCount = 50;
-
+  // Initialize cocktails on mount (desktop only)
   useEffect(() => {
-    // Check if mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Don't initialize cocktails on mobile
     if (isMobile) {
       setCocktails([]);
       return;
     }
 
-    // Initialize cocktails with random positions and velocities within title area
-    const titleHeight = 100; // increased title area height
-    const initialCocktails: Cocktail[] = Array.from({ length: cocktailCount }, (_, i) => ({
+    const initialCocktails: Cocktail[] = Array.from({ length: COCKTAIL_COUNT }, (_, i) => ({
       id: i,
       x: Math.random() * window.innerWidth,
-      y: Math.random() * titleHeight,
+      y: Math.random() * TITLE_HEIGHT,
       vx: (Math.random() - 0.5) * 4,
       vy: (Math.random() - 0.5) * 4,
-      image: images[i % images.length],
+      image: IMAGES[i % IMAGES.length],
       scale: 0.6 + Math.random() * 0.4,
     }));
     setCocktails(initialCocktails);
   }, [isMobile]);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+  // Track mouse position with useCallback for performance
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    setMousePos({ x: e.clientX, y: e.clientY });
   }, []);
 
   useEffect(() => {
+    if (isMobile) return;
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [isMobile, handleMouseMove]);
+
+  // Animation loop with proper cleanup
+  useEffect(() => {
+    if (isMobile || cocktails.length === 0) return;
+
     const animate = () => {
-      const headerHeight = containerRef.current?.clientHeight || 100;
+      const headerHeight = containerRef.current?.clientHeight || TITLE_HEIGHT;
 
       setCocktails((prev) =>
         prev.map((cocktail) => {
           let { x, y, vx, vy } = cocktail;
 
-          // Move away from mouse
+          // Calculate repulsion from mouse
           const dx = x - mousePos.x;
           const dy = y - mousePos.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          const repelDistance = 150;
 
-          if (distance < repelDistance && distance > 0) {
-            const force = (repelDistance - distance) / repelDistance;
+          if (distance < REPEL_DISTANCE && distance > 0) {
+            const force = (REPEL_DISTANCE - distance) / REPEL_DISTANCE;
             vx += (dx / distance) * force * 1.5;
             vy += (dy / distance) * force * 1.5;
           }
@@ -103,13 +98,11 @@ const FloatingCocktails = () => {
             y = Math.max(0, Math.min(headerHeight, y));
           }
 
-          // Maintain constant speed (no damping)
+          // Normalize to maintain constant speed
           const currentSpeed = Math.sqrt(vx * vx + vy * vy);
-          const targetSpeed = 0.3;
-
           if (currentSpeed > 0) {
-            vx = (vx / currentSpeed) * targetSpeed;
-            vy = (vy / currentSpeed) * targetSpeed;
+            vx = (vx / currentSpeed) * TARGET_SPEED;
+            vy = (vy / currentSpeed) * TARGET_SPEED;
           }
 
           return { ...cocktail, x, y, vx, vy };
@@ -122,13 +115,13 @@ const FloatingCocktails = () => {
     animationRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (animationRef.current) {
+      if (animationRef.current !== undefined) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [mousePos]);
+  }, [mousePos, isMobile, cocktails.length]);
 
-  // Don't render anything on mobile
+  // Don't render on mobile
   if (isMobile) {
     return null;
   }
@@ -138,6 +131,7 @@ const FloatingCocktails = () => {
       ref={containerRef}
       className="absolute inset-0 w-full h-full"
       style={{ pointerEvents: "none", zIndex: 1 }}
+      aria-hidden="true"
     >
       {cocktails.map((cocktail) => (
         <img
@@ -158,6 +152,8 @@ const FloatingCocktails = () => {
       ))}
     </div>
   );
-};
+});
+
+FloatingCocktails.displayName = "FloatingCocktails";
 
 export default FloatingCocktails;

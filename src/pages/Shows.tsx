@@ -1,11 +1,13 @@
-import React from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
+import { PageWrapper } from "../components/PageWrapper";
+import { ContentContainer } from "../components/ContentContainer";
 import { upcomingShows } from "../data/shows";
 
-const Shows = React.memo(() => {
+const Shows = memo(() => {
   return (
-    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
-      <div className="max-w-5xl mx-auto">
+    <PageWrapper>
+      <ContentContainer>
         <h2 className="text-3xl font-[var(--font-heading)] mb-8 text-center">Upcoming Shows</h2>
 
         <div className="space-y-6">
@@ -29,8 +31,8 @@ const Shows = React.memo(() => {
             </div>
           ))}
         </div>
-      </div>
-    </main>
+      </ContentContainer>
+    </PageWrapper>
   );
 });
 
