@@ -1,13 +1,14 @@
-import React from "react";
+import { memo } from "react";
+import { PageWrapper } from "../components/PageWrapper";
 import Timeline from "../components/Timeline";
 
-const Archives = React.memo(() => {
+const Archives = memo(() => {
   return (
-    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
-      <div className="flex items-center justify-center px-4 py-8">
+    <PageWrapper>
+      <div className="flex items-center justify-center">
         <Timeline />
       </div>
-    </main>
+    </PageWrapper>
   );
 });
 

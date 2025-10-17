@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import flutes from "../assets/Flutes3.PNG";
 import martini from "../assets/Martini.PNG";
 
@@ -9,10 +9,12 @@ interface TrailItem {
   image: string;
 }
 
-const CursorTrail = () => {
+const IMAGES = [flutes, martini] as const;
+const MAX_TRAIL_ITEMS = 10;
+
+const CursorTrail = memo(() => {
   const [trail, setTrail] = useState<TrailItem[]>([]);
   const [idCounter, setIdCounter] = useState(0);
-  const images = [flutes, martini];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -20,10 +22,10 @@ const CursorTrail = () => {
         id: idCounter,
         x: e.clientX,
         y: e.clientY,
-        image: images[idCounter % images.length],
+        image: IMAGES[idCounter % IMAGES.length],
       };
 
-      setTrail((prev) => [...prev, newItem].slice(-10)); // Keep last 10 items
+      setTrail((prev) => [...prev, newItem].slice(-MAX_TRAIL_ITEMS));
       setIdCounter((prev) => prev + 1);
     };
 
@@ -44,7 +46,7 @@ const CursorTrail = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-50">
+    <div className="fixed inset-0 pointer-events-none z-50" aria-hidden="true">
       {trail.map((item, index) => (
         <img
           key={item.id}
@@ -62,6 +64,8 @@ const CursorTrail = () => {
       ))}
     </div>
   );
-};
+});
+
+CursorTrail.displayName = "CursorTrail";
 
 export default CursorTrail;

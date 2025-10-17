@@ -1,10 +1,14 @@
-import React from "react";
+import { memo } from "react";
+import { PageWrapper } from "../components/PageWrapper";
+import { ContentContainer } from "../components/ContentContainer";
 import cheersCello from "../assets/celloWithDrinks.png";
 
-const Home = React.memo(() => {
+const HEADING_FONT_STYLE = { fontFamily: 'Neka, serif', lineHeight: '1.1' };
+
+const Home = memo(() => {
   return (
-    <main role="main" className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
-      <div className="max-w-6xl mx-auto">
+    <PageWrapper>
+      <ContentContainer maxWidth="6xl">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
           <div className="flex-shrink-0">
             <img
@@ -15,19 +19,19 @@ const Home = React.memo(() => {
             />
           </div>
           <div className="flex-1 space-y-10 mt-12">
-            <p className="text-[var(--color-text)] text-5xl text-left" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
+            <p className="text-[var(--color-text)] text-5xl text-left" style={HEADING_FONT_STYLE}>
               This is a creative safe space for both the performers and audience.
             </p>
-            <p className="text-[var(--color-text)] text-3xl text-right" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
+            <p className="text-[var(--color-text)] text-3xl text-right" style={HEADING_FONT_STYLE}>
               A place where we feel open to taking risks and being emotionally free
             </p>
-            <p className="text-[var(--color-text)] text-2xl text-left" style={{ fontFamily: 'Neka, serif', lineHeight: '1.1' }}>
+            <p className="text-[var(--color-text)] text-2xl text-left" style={HEADING_FONT_STYLE}>
               A place for playfulness, vulnerability, and connection!
             </p>
           </div>
         </div>
-      </div>
-    </main>
+      </ContentContainer>
+    </PageWrapper>
   );
 });
 

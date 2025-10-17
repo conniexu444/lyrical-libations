@@ -1,10 +1,12 @@
-import React from "react";
+import { memo } from "react";
+import { PageWrapper } from "../components/PageWrapper";
+import { ContentContainer } from "../components/ContentContainer";
 import banner from "../assets/banner.png";
 
-const About = React.memo(() => {
+const About = memo(() => {
   return (
-    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
-      <div className="max-w-5xl mx-auto">
+    <PageWrapper>
+      <ContentContainer>
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
           <div className="flex-shrink-0">
             <img
@@ -28,8 +30,8 @@ const About = React.memo(() => {
             </p>
           </div>
         </div>
-      </div>
-    </main>
+      </ContentContainer>
+    </PageWrapper>
   );
 });
 

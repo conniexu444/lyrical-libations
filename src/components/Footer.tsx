@@ -9,7 +9,7 @@ const Footer = React.memo(() => {
       <nav aria-label="Social media links">
         <div className="flex justify-center gap-6 items-center mb-2">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/lyrical.libations"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-70 transition-opacity focus:outline-none"
@@ -39,6 +39,6 @@ const Footer = React.memo(() => {
   );
 });
 
-Footer.displayName = 'Footer';
+Footer.displayName = "Footer";
 
 export default Footer;

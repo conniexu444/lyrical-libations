@@ -1,11 +1,16 @@
-import React from "react";
+import { memo } from "react";
+import { PageWrapper } from "../components/PageWrapper";
+import { ContentContainer } from "../components/ContentContainer";
+import { Button } from "../components/core/button";
+import { useContactForm } from "../hooks/useContactForm";
 import drinks from "../assets/drinks.png";
 import music from "../assets/music.png";
-import { Button } from "../components/core/button";
 
-const Contact = React.memo(() => {
+const Contact = memo(() => {
+  const { formData, errors, isSubmitting, handleChange, handleSubmit } = useContactForm();
+
   return (
-    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-font)] font-[var(--font-body)] p-6 relative overflow-hidden">
+    <PageWrapper className="relative overflow-hidden">
       <img
         src={drinks}
         alt=""
@@ -20,14 +25,13 @@ const Contact = React.memo(() => {
         aria-hidden="true"
       />
 
-      <div className="max-w-2xl mx-auto mt-20">
+      <ContentContainer maxWidth="2xl" className="mt-20">
         <div className="bg-[var(--color-footer)] border border-[var(--color-link)] rounded-2xl shadow-md p-8">
           <p className="mb-6 text-lg">
-            Want to collaborate, host us, or just say hi? We'd love to hear from
-            you.
+            Want to collaborate, host us, or just say hi? We'd love to hear from you.
           </p>
 
-          <form className="space-y-4" role="form" aria-label="Contact form">
+          <form className="space-y-4" onSubmit={handleSubmit} role="form" aria-label="Contact form">
             <div>
               <label htmlFor="name" className="block mb-1 text-sm font-medium">
                 Name *
@@ -36,10 +40,19 @@ const Contact = React.memo(() => {
                 id="name"
                 name="name"
                 type="text"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full border border-gray-500 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-link)] focus:border-[var(--color-link)]"
                 required
                 aria-required="true"
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? "name-error" : undefined}
               />
+              {errors.name && (
+                <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
+                  {errors.name}
+                </p>
+              )}
             </div>
 
             <div>
@@ -50,10 +63,19 @@ const Contact = React.memo(() => {
                 id="email"
                 name="email"
                 type="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full border border-gray-500 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-link)] focus:border-[var(--color-link)]"
                 required
                 aria-required="true"
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? "email-error" : undefined}
               />
+              {errors.email && (
+                <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                  {errors.email}
+                </p>
+              )}
             </div>
 
             <div>
@@ -64,19 +86,30 @@ const Contact = React.memo(() => {
                 id="message"
                 name="message"
                 rows={5}
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full border border-gray-500 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-link)] focus:border-[var(--color-link)]"
                 required
                 aria-required="true"
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? "message-error" : undefined}
               />
+              {errors.message && (
+                <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
+                  {errors.message}
+                </p>
+              )}
             </div>
 
             <div className="flex justify-center">
-              <Button type="submit">Send Message</Button>
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
             </div>
           </form>
         </div>
-      </div>
-    </main>
+      </ContentContainer>
+    </PageWrapper>
   );
 });
 
