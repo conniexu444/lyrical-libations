@@ -1,33 +1,37 @@
-import React from "react";
+import { memo } from "react";
 import { useParams, Link } from "react-router-dom";
+import { PageWrapper } from "../components/PageWrapper";
+import { ContentContainer } from "../components/ContentContainer";
 import { upcomingShows } from "../data/shows";
 
-const ShowDetail = React.memo(() => {
+const ShowDetail = memo(() => {
   const { date } = useParams<{ date: string }>();
   const show = upcomingShows.find((s) => s.id === date);
 
   if (!show) {
     return (
-      <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-[var(--font-heading)] mb-4">Show Not Found</h2>
-          <p className="text-lg opacity-80 mb-6">
-            The show you're looking for doesn't exist or has been removed.
-          </p>
-          <Link
-            to="/shows"
-            className="inline-block px-6 py-3 border border-[var(--color-text)] rounded hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-all"
-          >
-            Back to Shows
-          </Link>
-        </div>
-      </main>
+      <PageWrapper>
+        <ContentContainer>
+          <div className="text-center">
+            <h2 className="text-3xl font-[var(--font-heading)] mb-4">Show Not Found</h2>
+            <p className="text-lg opacity-80 mb-6">
+              The show you're looking for doesn't exist or has been removed.
+            </p>
+            <Link
+              to="/shows"
+              className="inline-block px-6 py-3 border border-[var(--color-text)] rounded hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-all"
+            >
+              Back to Shows
+            </Link>
+          </div>
+        </ContentContainer>
+      </PageWrapper>
     );
   }
 
   return (
-    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
-      <div className="max-w-5xl mx-auto">
+    <PageWrapper>
+      <ContentContainer>
         <Link
           to="/shows"
           className="inline-block mb-6 opacity-70 hover:opacity-100 transition-opacity"
@@ -64,8 +68,8 @@ const ShowDetail = React.memo(() => {
             </div>
           )}
         </div>
-      </div>
-    </main>
+      </ContentContainer>
+    </PageWrapper>
   );
 });
 

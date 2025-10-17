@@ -1,13 +1,22 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import logo from "./assets/cheers.png";
 import { routes } from "./routes/routes";
-import EditionPage from "./pages/Edition";
-import ShowDetail from "./pages/ShowDetail";
 import ScrollToTop from "./components/ScrollToTop";
-import Home from "./pages/Home";
 import AnimatedTitle from "./components/AnimatedTitle";
+
+// Lazy load dynamic route components
+const EditionPage = lazy(() => import("./pages/Edition"));
+const ShowDetail = lazy(() => import("./pages/ShowDetail"));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <div className="text-[var(--color-text)] text-lg opacity-70">Loading...</div>
+  </div>
+);
 
 export default function App() {
   return (
@@ -28,19 +37,16 @@ export default function App() {
         <main className="flex-grow w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <ScrollToTop />
-            <Routes>
-              <Route index element={<Home />} />
-              <Route path="/" element={<Home />} />
-
-              {routes
-                .filter(({ href }) => href !== "/")
-                .map(({ href, component: Component }) => (
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
+                {routes.map(({ href, component: Component }) => (
                   <Route key={href} path={href} element={<Component />} />
                 ))}
 
-              <Route path="/archives/:id" element={<EditionPage />} />
-              <Route path="/shows/:date" element={<ShowDetail />} />
-            </Routes>
+                <Route path="/archives/:id" element={<EditionPage />} />
+                <Route path="/shows/:date" element={<ShowDetail />} />
+              </Routes>
+            </Suspense>
           </div>
         </main>
 

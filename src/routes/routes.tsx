@@ -1,11 +1,14 @@
 // Routes for the nav bar / menu / navigations
+import { lazy } from "react";
 import type { RouteConfig } from "../types/routes";
-import Home from "../pages/Home";
-import Contact from "../pages/Contact";
-import About from "../pages/About";
-import SupportUs from "../pages/SupportUs";
-import Shows from "../pages/Shows";
-import Archives from "../pages/Archives";
+
+// Lazy load all page components for better performance
+const Home = lazy(() => import("../pages/Home"));
+const About = lazy(() => import("../pages/About"));
+const Shows = lazy(() => import("../pages/Shows"));
+const Archives = lazy(() => import("../pages/Archives"));
+const SupportUs = lazy(() => import("../pages/SupportUs"));
+const Contact = lazy(() => import("../pages/Contact"));
 
 export const routes: RouteConfig[] = [
   {
