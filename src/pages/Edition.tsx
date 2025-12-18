@@ -1,8 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
 import { ImageWithPlaceholder } from "../components/ImageWithPlaceholder";
+import { ImageLightbox } from "../components/ImageLightbox";
 import { useIsMobile } from "../hooks/useMediaQuery";
 import { optimizeImagesForMobile } from "../utils/randomSelection";
 
@@ -34,6 +35,9 @@ export default function EditionPage() {
     [id]
   );
 
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   const allImages = useMemo(
     () => (edition ? editionImages[edition.id] || [] : []),
     [edition]
@@ -48,6 +52,13 @@ export default function EditionPage() {
     });
   }, [allImages, isMobile, edition?.id]);
 
+  const handleImageClick = (displayIndex: number) => {
+    // Map displayed image back to full array
+    const clickedImageSrc = images[displayIndex];
+    const actualIndex = allImages.indexOf(clickedImageSrc);
+    setSelectedImageIndex(actualIndex);
+    setLightboxOpen(true);
+  };
 
   if (!edition) {
     return (
@@ -89,11 +100,22 @@ export default function EditionPage() {
                   src={src}
                   alt={`${edition.title} image ${index + 1}`}
                   loading={index < 3 ? "eager" : "lazy"}
+                  onClick={() => handleImageClick(index)}
                 />
               );
             })}
           </div>
         </>
+      )}
+
+      {lightboxOpen && (
+        <ImageLightbox
+          images={allImages}
+          initialIndex={selectedImageIndex}
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          editionTitle={edition.title}
+        />
       )}
     </div>
   );

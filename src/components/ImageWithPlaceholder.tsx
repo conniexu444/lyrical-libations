@@ -5,6 +5,7 @@ interface ImageWithPlaceholderProps {
   alt: string;
   className?: string;
   loading?: "eager" | "lazy";
+  onClick?: () => void;
 }
 
 export function ImageWithPlaceholder({
@@ -12,12 +13,16 @@ export function ImageWithPlaceholder({
   alt,
   className = "",
   loading = "lazy",
+  onClick,
 }: ImageWithPlaceholderProps) {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div
-      className={`relative w-full mb-4 break-inside-avoid content-visibility-auto min-h-[250px] ${className}`}
+      className={`relative w-full mb-4 break-inside-avoid content-visibility-auto min-h-[250px] ${className} ${
+        onClick ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''
+      }`}
+      onClick={onClick}
     >
       {!loaded && (
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 dark:from-rose-100/10 dark:via-rose-100/20 dark:to-rose-100/10 rounded-md overflow-hidden">
