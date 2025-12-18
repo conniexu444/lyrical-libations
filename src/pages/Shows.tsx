@@ -1,10 +1,9 @@
-import { memo } from "react";
 import { Link } from "react-router-dom";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import { upcomingShows } from "../data/shows";
 
-const Shows = memo(() => {
+export default function Shows() {
   return (
     <PageWrapper>
       <ContentContainer>
@@ -34,8 +33,4 @@ const Shows = memo(() => {
       </ContentContainer>
     </PageWrapper>
   );
-});
-
-Shows.displayName = 'Shows';
-
-export default Shows;
+}

@@ -1,8 +1,7 @@
-import { memo } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import Timeline from "../components/Timeline";
 
-const Archives = memo(() => {
+export default function Archives() {
   return (
     <PageWrapper>
       <div className="flex items-center justify-center">
@@ -10,9 +9,5 @@ const Archives = memo(() => {
       </div>
     </PageWrapper>
   );
-});
-
-Archives.displayName = 'Archives';
-
-export default Archives;
+}
   

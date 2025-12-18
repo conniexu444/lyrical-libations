@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, memo, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "../hooks/useMediaQuery";
 import flutes from "../assets/Flutes3.PNG";
 import martini from "../assets/Martini.PNG";
@@ -24,7 +24,7 @@ const TARGET_SPEED = 0.3;
 const REPEL_DISTANCE = 150;
 const TITLE_HEIGHT = 100;
 
-const FloatingCocktails = memo(() => {
+export default function FloatingCocktails() {
   const [cocktails, setCocktails] = useState<Cocktail[]>([]);
   const [mousePos, setMousePos] = useState<MousePosition>({ x: 0, y: 0 });
   const isMobile = useIsMobile();
@@ -50,17 +50,17 @@ const FloatingCocktails = memo(() => {
     setCocktails(initialCocktails);
   }, [isMobile]);
 
-  // Track mouse position with useCallback for performance
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    setMousePos({ x: e.clientX, y: e.clientY });
-  }, []);
-
+  // Track mouse position
   useEffect(() => {
     if (isMobile) return;
 
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [isMobile, handleMouseMove]);
+  }, [isMobile]);
 
   // Animation loop with proper cleanup
   useEffect(() => {
@@ -152,8 +152,4 @@ const FloatingCocktails = memo(() => {
       ))}
     </div>
   );
-});
-
-FloatingCocktails.displayName = "FloatingCocktails";
-
-export default FloatingCocktails;
+}

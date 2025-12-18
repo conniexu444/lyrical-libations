@@ -1,9 +1,8 @@
-import { memo } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import banner from "../assets/banner.png";
 
-const About = memo(() => {
+export default function About() {
   return (
     <PageWrapper>
       <ContentContainer>
@@ -33,8 +32,4 @@ const About = memo(() => {
       </ContentContainer>
     </PageWrapper>
   );
-});
-
-About.displayName = "About";
-
-export default About;
+}

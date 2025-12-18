@@ -1,6 +1,4 @@
-import React from "react";
-
-const Footer = React.memo(() => {
+export default function Footer() {
   return (
     <footer
       className="bg-[var(--color-footer)] py-6 mt-auto text-center text-sm text-[var(--color-text)]"
@@ -37,8 +35,4 @@ const Footer = React.memo(() => {
       </nav>
     </footer>
   );
-});
-
-Footer.displayName = "Footer";
-
-export default Footer;
+}

@@ -1,20 +1,12 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { routes } from "../routes/routes";
 
-const Nav = React.memo(() => {
+export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  const toggleMenu = useCallback(() => {
-    setIsOpen(prev => !prev);
-  }, []);
-
-  const closeMenu = useCallback(() => {
-    setIsOpen(false);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
@@ -27,7 +19,7 @@ const Nav = React.memo(() => {
     <>
       {/* Hamburger toggle for mobile */}
       <button
-        onClick={toggleMenu}
+        onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
         className={`fixed top-8 right-8 z-50 md:hidden p-2 ${
@@ -87,7 +79,7 @@ const Nav = React.memo(() => {
                   >
                     <Link
                       to={link.href}
-                      onClick={closeMenu}
+                      onClick={() => setIsOpen(false)}
                       className="text-white hover:opacity-70 transition-opacity"
                     >
                       {link.title}
@@ -100,8 +92,4 @@ const Nav = React.memo(() => {
       </AnimatePresence>
     </>
   );
-});
-
-Nav.displayName = 'Nav';
-
-export default Nav;
+}

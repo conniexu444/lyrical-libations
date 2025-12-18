@@ -1,10 +1,9 @@
-import { memo } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import { Button } from "../components/core/button";
 import violin from "../assets/violinAlone.png";
 
-const SupportUs = memo(() => {
+export default function SupportUs() {
   return (
     <PageWrapper>
       <ContentContainer>
@@ -40,8 +39,4 @@ const SupportUs = memo(() => {
       </ContentContainer>
     </PageWrapper>
   );
-});
-
-SupportUs.displayName = "SupportUs";
-
-export default SupportUs;
+}

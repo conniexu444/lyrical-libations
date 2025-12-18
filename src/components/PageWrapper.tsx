@@ -1,15 +1,11 @@
-import { memo, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface PageWrapperProps {
   children: ReactNode;
   className?: string;
 }
 
-/**
- * Shared page wrapper component that provides consistent layout and styling
- * across all pages. Reduces code duplication and ensures consistency.
- */
-export const PageWrapper = memo<PageWrapperProps>(({ children, className = "" }) => {
+export function PageWrapper({ children, className = "" }: PageWrapperProps) {
   return (
     <main
       role="main"
@@ -18,6 +14,4 @@ export const PageWrapper = memo<PageWrapperProps>(({ children, className = "" })
       {children}
     </main>
   );
-});
-
-PageWrapper.displayName = "PageWrapper";
+}

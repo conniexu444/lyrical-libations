@@ -18,7 +18,6 @@ interface UseContactFormReturn {
   isSubmitting: boolean;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>;
-  resetForm: () => void;
 }
 
 const INITIAL_FORM_STATE: FormData = {
@@ -106,18 +105,11 @@ export function useContactForm(): UseContactFormReturn {
     [formData, validateForm]
   );
 
-  const resetForm = useCallback(() => {
-    setFormData(INITIAL_FORM_STATE);
-    setErrors({});
-    setIsSubmitting(false);
-  }, []);
-
   return {
     formData,
     errors,
     isSubmitting,
     handleChange,
     handleSubmit,
-    resetForm,
   };
 }

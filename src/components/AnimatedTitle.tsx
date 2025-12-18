@@ -1,4 +1,3 @@
-import { memo } from "react";
 import ScrambleHover from "./scramble";
 
 const SCRAMBLE_CONFIG = {
@@ -7,7 +6,7 @@ const SCRAMBLE_CONFIG = {
   useOriginalCharsOnly: true,
 } as const;
 
-const AnimatedTitle = memo(() => {
+export default function AnimatedTitle() {
   return (
     <h1 className="text-2xl font-[var(--font-display)]">
       <ScrambleHover
@@ -17,8 +16,4 @@ const AnimatedTitle = memo(() => {
       />
     </h1>
   );
-});
-
-AnimatedTitle.displayName = "AnimatedTitle";
-
-export default AnimatedTitle;
+}

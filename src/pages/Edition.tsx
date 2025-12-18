@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
@@ -25,7 +25,7 @@ const editionImages: Record<string, string[]> = {
     .map(([, path]) => path as string),
 };
 
-const EditionPage = React.memo(() => {
+export default function EditionPage() {
   const { id } = useParams<{ id: string }>();
   const isMobile = useIsMobile();
 
@@ -97,8 +97,4 @@ const EditionPage = React.memo(() => {
       )}
     </div>
   );
-});
-
-EditionPage.displayName = 'EditionPage';
-
-export default EditionPage;
+}

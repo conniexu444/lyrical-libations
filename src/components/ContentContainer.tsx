@@ -1,4 +1,4 @@
-import { memo, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface ContentContainerProps {
   children: ReactNode;
@@ -13,18 +13,10 @@ const MAX_WIDTH_CLASSES = {
   "7xl": "max-w-7xl",
 } as const;
 
-/**
- * Reusable content container component that provides consistent max-width
- * and centering across pages.
- */
-export const ContentContainer = memo<ContentContainerProps>(
-  ({ children, maxWidth = "5xl", className = "" }) => {
-    return (
-      <div className={`${MAX_WIDTH_CLASSES[maxWidth]} mx-auto ${className}`}>
-        {children}
-      </div>
-    );
-  }
-);
-
-ContentContainer.displayName = "ContentContainer";
+export function ContentContainer({ children, maxWidth = "5xl", className = "" }: ContentContainerProps) {
+  return (
+    <div className={`${MAX_WIDTH_CLASSES[maxWidth]} mx-auto ${className}`}>
+      {children}
+    </div>
+  );
+}

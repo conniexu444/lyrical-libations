@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
@@ -8,11 +7,8 @@ interface TimelineProps {
   defaultColor?: string;
 }
 
-const Timeline = React.memo(({ defaultColor }: TimelineProps) => {
-  const colorClass = useMemo(
-    () => defaultColor || "bg-[var(--color-link)]",
-    [defaultColor]
-  );
+export default function Timeline({ defaultColor }: TimelineProps) {
+  const colorClass = defaultColor || "bg-[var(--color-link)]";
 
   return (
     <div>
@@ -68,8 +64,4 @@ const Timeline = React.memo(({ defaultColor }: TimelineProps) => {
       ))}
     </div>
   );
-});
-
-Timeline.displayName = "Timeline";
-
-export default Timeline;
+}

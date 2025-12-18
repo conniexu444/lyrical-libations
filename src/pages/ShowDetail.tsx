@@ -1,10 +1,9 @@
-import { memo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import { upcomingShows } from "../data/shows";
 
-const ShowDetail = memo(() => {
+export default function ShowDetail() {
   const { date } = useParams<{ date: string }>();
   const show = upcomingShows.find((s) => s.id === date);
 
@@ -71,8 +70,4 @@ const ShowDetail = memo(() => {
       </ContentContainer>
     </PageWrapper>
   );
-});
-
-ShowDetail.displayName = 'ShowDetail';
-
-export default ShowDetail;
+}

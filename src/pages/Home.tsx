@@ -1,11 +1,10 @@
-import { memo } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import cheersCello from "../assets/celloWithDrinks.png";
 
 const HEADING_FONT_STYLE = { fontFamily: 'Neka, serif', lineHeight: '1.1' };
 
-const Home = memo(() => {
+export default function Home() {
   return (
     <PageWrapper>
       <ContentContainer maxWidth="6xl">
@@ -33,8 +32,4 @@ const Home = memo(() => {
       </ContentContainer>
     </PageWrapper>
   );
-});
-
-Home.displayName = "Home";
-
-export default Home;
+}

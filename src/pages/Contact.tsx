@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import { Button } from "../components/core/button";
@@ -6,7 +5,7 @@ import { useContactForm } from "../hooks/useContactForm";
 import drinks from "../assets/drinks.png";
 import music from "../assets/music.png";
 
-const Contact = memo(() => {
+export default function Contact() {
   const { formData, errors, isSubmitting, handleChange, handleSubmit } = useContactForm();
 
   return (
@@ -111,8 +110,4 @@ const Contact = memo(() => {
       </ContentContainer>
     </PageWrapper>
   );
-});
-
-Contact.displayName = 'Contact';
-
-export default Contact;
+}

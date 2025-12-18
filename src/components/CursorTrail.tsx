@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, useRef } from "react";
 import flutes from "../assets/Flutes3.PNG";
 import martini from "../assets/Martini.PNG";
 
@@ -12,21 +12,21 @@ interface TrailItem {
 const IMAGES = [flutes, martini] as const;
 const MAX_TRAIL_ITEMS = 10;
 
-const CursorTrail = memo(() => {
+export default function CursorTrail() {
   const [trail, setTrail] = useState<TrailItem[]>([]);
-  const [idCounter, setIdCounter] = useState(0);
+  const idCounterRef = useRef(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      const id = idCounterRef.current++;
       const newItem: TrailItem = {
-        id: idCounter,
+        id,
         x: e.clientX,
         y: e.clientY,
-        image: IMAGES[idCounter % IMAGES.length],
+        image: IMAGES[id % IMAGES.length],
       };
 
       setTrail((prev) => [...prev, newItem].slice(-MAX_TRAIL_ITEMS));
-      setIdCounter((prev) => prev + 1);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -34,7 +34,7 @@ const CursorTrail = memo(() => {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [idCounter]);
+  }, []);
 
   useEffect(() => {
     // Remove items after they fade out
@@ -64,8 +64,4 @@ const CursorTrail = memo(() => {
       ))}
     </div>
   );
-});
-
-CursorTrail.displayName = "CursorTrail";
-
-export default CursorTrail;
+}
