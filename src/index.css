@@ -10,6 +10,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'RM Typerighter';
+  src: url('/rm-typerighter.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @keyframes bounce-slow {
   0%, 100% {
     transform: translateY(0);

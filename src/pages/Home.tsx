@@ -2,7 +2,7 @@ import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import cheersCello from "../assets/celloWithDrinks.png";
 
-const HEADING_FONT_STYLE = { fontFamily: 'Neka, serif', lineHeight: '1.1' };
+const HEADING_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace', lineHeight: '1.1' };
 
 export default function Home() {
   return (
