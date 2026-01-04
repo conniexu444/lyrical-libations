@@ -73,32 +73,32 @@ export default function About() {
 
         {/* Staggered illustration layout */}
         <div className="relative w-full h-96 mt-12 mb-8">
-          {/* Top left - Cocktail */}
+          {/* Left - Cocktail */}
           <img
             src={martini}
             alt="Cocktail with music"
-            className="absolute top-8 left-1/4 transform -translate-x-1/2 w-20 h-20 md:w-24 md:h-24 object-contain"
+            className="absolute top-4 left-1/4 transform -translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
           />
 
-          {/* Middle left - Violinist */}
+          {/* Center left - Violinist */}
           <img
             src={violinist}
             alt="Violinist"
-            className="absolute top-32 left-1/3 transform -translate-x-1/2 w-36 h-36 md:w-44 md:h-44 object-contain"
+            className="absolute top-24 left-1/3 transform -translate-x-1/2 w-52 h-52 md:w-72 md:h-72 object-contain"
           />
 
-          {/* Middle right - Violin */}
+          {/* Center right - Violin */}
           <img
             src={violinAlone}
             alt="Violin"
-            className="absolute top-40 right-1/3 transform translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
+            className="absolute top-28 right-1/3 transform translate-x-1/2 w-40 h-40 md:w-48 md:h-48 object-contain"
           />
 
-          {/* Top right - Champagne glasses */}
+          {/* Right - Champagne glasses */}
           <img
             src={cheers}
             alt="Cheers"
-            className="absolute top-6 right-1/4 transform translate-x-1/2 w-20 h-20 md:w-24 md:h-24 object-contain"
+            className="absolute top-2 right-1/4 transform translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
           />
         </div>
 
@@ -107,22 +107,22 @@ export default function About() {
           <h2 className="text-[var(--color-text)] text-2xl font-bold mb-4" style={TYPEWRITER_FONT_STYLE}>
             The Premise
           </h2>
-          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
+          <p className="text-[var(--color-text)] text-xl leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             At every show, the musical program is the drink menu!
           </p>
-          <p className="text-[var(--color-text)] text-base leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
+          <p className="text-[var(--color-text)] text-sm leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             Think the way one would sample a wine flight or a tasting menu, except with music. You'll see each musical sample paired with a libation!
           </p>
-          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
+          <p className="text-[var(--color-text)] text-xl leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             Every show is a different chamber group at a different bar.
           </p>
-          <p className="text-[var(--color-text)] text-base leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
+          <p className="text-[var(--color-text)] text-sm leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             Supporting our local musicians (many of whom are our dear friends!) and local bars!
           </p>
-          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
+          <p className="text-[var(--color-text)] text-xl leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             Every show encourages experiencing classical music in a new way.
           </p>
-          <p className="text-[var(--color-text)] text-base leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
+          <p className="text-[var(--color-text)] text-sm leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             Whether you've never listened to classical music, used to play, or currently play, this space is for you. We encourage mingling after the music ends, so don't be surprised if you leave with a new friend or two, a revived love for music, and another favorite bar…
           </p>
         </div>
