@@ -13,7 +13,7 @@ export default function Shows() {
           {upcomingShows.map((show) => (
             <div
               key={show.id}
-              className="border border-[var(--color-text)] border-opacity-20 rounded-lg p-6 hover:border-opacity-40 transition-all"
+              className="bg-[var(--show-boxes-color)] text-white border border-[var(--color-text)] border-opacity-20 rounded-lg p-6 hover:opacity-90 transition-all"
             >
               <Link to={`/shows/${show.id}`}>
                 <h3 className="text-2xl font-[var(--font-heading)] mb-2 hover:opacity-70 transition-opacity cursor-pointer">
