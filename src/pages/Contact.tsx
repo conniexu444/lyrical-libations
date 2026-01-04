@@ -4,6 +4,8 @@ import { Button } from "../components/core/button";
 import { useContactForm } from "../hooks/useContactForm";
 import drinks from "../assets/drinks.png";
 import music from "../assets/music.png";
+import violinist from "../assets/Violinist (1).PNG";
+import bubbles from "../assets/Bubbles.PNG";
 
 export default function Contact() {
   const { formData, errors, isSubmitting, handleChange, handleSubmit } = useContactForm();
@@ -24,8 +26,22 @@ export default function Contact() {
         aria-hidden="true"
       />
 
+      <img
+        src={violinist}
+        alt=""
+        className="hidden sm:block absolute top-10 left-20 w-32 md:w-40 animate-bounce-slow pointer-events-none select-none"
+        aria-hidden="true"
+      />
+
+      <img
+        src={bubbles}
+        alt=""
+        className="hidden sm:block absolute bottom-10 right-20 w-32 md:w-40 animate-bounce-slow pointer-events-none select-none"
+        aria-hidden="true"
+      />
+
       <ContentContainer maxWidth="2xl" className="mt-20">
-        <div className="bg-[var(--color-footer)] border border-[var(--color-link)] rounded-2xl shadow-md p-8">
+        <div className="bg-[var(--color-teal)] border border-[var(--color-link)] rounded-2xl shadow-md p-8 text-white">
           <p className="mb-6 text-lg">
             Want to collaborate, host us, or just say hi? We'd love to hear from you.
           </p>
