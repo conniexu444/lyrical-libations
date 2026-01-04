@@ -8,7 +8,6 @@ import martini from "../assets/Martini (1).PNG";
 import violinist from "../assets/Violinist (1).PNG";
 import violinAlone from "../assets/violinAlone.png";
 import cheers from "../assets/cheers.png";
-import musicNotes from "../assets/musicNotesIcon.png";
 
 const TYPEWRITER_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace' };
 

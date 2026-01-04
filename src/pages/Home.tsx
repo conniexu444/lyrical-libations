@@ -8,25 +8,17 @@ export default function Home() {
   return (
     <PageWrapper>
       <ContentContainer maxWidth="6xl">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-          <div className="flex-shrink-0">
+        <div className="flex flex-col items-center gap-8">
+          <h1 className="text-[var(--color-text)] text-xl md:text-2xl lg:text-3xl text-center" style={HEADING_FONT_STYLE}>
+            We pair classical music with cocktails at your favorite NYC bars — tasting menu style!
+          </h1>
+          <div className="flex justify-center">
             <img
               src={cheersCello}
               alt="Lyrical Libations - A celebration of poetry, music, and community"
               className="w-full md:w-96 lg:w-[500px] h-auto rounded-lg object-cover"
               loading="eager"
             />
-          </div>
-          <div className="flex-1 space-y-10 mt-12">
-            <p className="text-[var(--color-text)] text-5xl text-left" style={HEADING_FONT_STYLE}>
-              This is a creative safe space for both the performers and audience.
-            </p>
-            <p className="text-[var(--color-text)] text-3xl text-right" style={HEADING_FONT_STYLE}>
-              A place where we feel open to taking risks and being emotionally free
-            </p>
-            <p className="text-[var(--color-text)] text-2xl text-left" style={HEADING_FONT_STYLE}>
-              A place for playfulness, vulnerability, and connection!
-            </p>
           </div>
         </div>
       </ContentContainer>
