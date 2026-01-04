@@ -5,6 +5,8 @@ import cocoGabyNight from "../assets/coco-gaby-night.jpg";
 import cocoGabyCocktails from "../assets/coco-gaby-cocktails.jpg";
 import flutes from "../assets/Flutes3.PNG";
 
+const TYPEWRITER_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace' };
+
 export default function About() {
   return (
     <PageWrapper>
@@ -26,11 +28,11 @@ export default function About() {
           </div>
         </div>
 
-        <div className="space-y-6 font-['RM_Typerighter']">
-          <p className="text-[var(--color-text)] text-lg leading-relaxed">
+        <div className="space-y-6">
+          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             The two of us met in 2018 and became friends playing chamber music at Juilliard. We have now made it a mission to make classical music more accessible, intimate, and playful, by pairing pieces of music with cocktails in bars across NYC, tasting menu style. By expanding the range of concert types that are presented in classical music, Lyrical Libations aims to create a welcoming environment for everyone, regardless of musical background or knowledge.
           </p>
-          <p className="text-[var(--color-text)] text-lg leading-relaxed">
+          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             Above all, it's a reminder that the essence of music is connection.
           </p>
         </div>
@@ -53,14 +55,14 @@ export default function About() {
           />
         </div>
 
-        <div className="space-y-6 font-['RM_Typerighter']">
-          <p className="text-[var(--color-text)] text-lg leading-relaxed">
+        <div className="space-y-6">
+          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             <u>Our story</u> started in 2024, as we were searching for meaning in our music.
           </p>
-          <p className="text-[var(--color-text)] text-lg leading-relaxed">
+          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             While working with a non-profit to bring concerts to individuals in carceral systems, we finally felt that our music had a bigger purpose. It felt like everyone in the room needed that music, and there were no longer the usual barriers between the audience and performer in classical music spaces.
           </p>
-          <p className="text-[var(--color-text)] text-lg leading-relaxed">
+          <p className="text-[var(--color-text)] text-lg leading-relaxed" style={TYPEWRITER_FONT_STYLE}>
             One night during this trip, we sat at a bar, sipping on some fun, creatively-crafted cocktails. With libations flowing, we reflected on how we could continue bringing classical music to spaces beyond the concert halls after this residency was over. As the flavors mixed with the music on our minds, we began to see how the senses of taste and sound enhance each other — by pairing flavor notes with pieces of music, classical music can be experienced in new and accessible ways. Most importantly, it was fun! And that is when Lyrical Libations was born.
           </p>
         </div>

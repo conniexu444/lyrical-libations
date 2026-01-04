@@ -63,7 +63,7 @@
     position: static;
     width: auto;
     height: auto;
-    cursor: url('./assets/cursor.png'), auto;
+    cursor: url('./assets/cursor.png') 8 8, auto;
   }
 
   #root {
