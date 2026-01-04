@@ -9,7 +9,7 @@ export function PageWrapper({ children, className = "" }: PageWrapperProps) {
   return (
     <main
       role="main"
-      className={`min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6 ${className}`}
+      className={`min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] px-6 pt-12 pb-6 ${className}`}
     >
       {children}
     </main>
