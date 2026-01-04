@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer
-      className="bg-[var(--color-footer)] py-6 mt-auto text-center text-sm text-[var(--color-text)]"
+      className="bg-[var(--color-red)] py-6 mt-auto text-center text-sm text-white"
       role="contentinfo"
     >
       <nav aria-label="Social media links">

@@ -41,12 +41,12 @@ export default function Timeline({ defaultColor }: TimelineProps) {
           {/* Entire card is a link */}
           <Link
             to={`/archives/${element.id}`}
-            className="border border-[var(--color-link)] rounded-lg px-8 py-4 bg-[var(--color-footer)] w-full text-center z-10 sm:w-96 hover:scale-[1.01] transition-transform duration-200"
+            className="border border-[var(--color-link)] rounded-lg px-8 py-4 bg-[var(--show-boxes-color)] w-full text-center z-10 sm:w-96 hover:scale-[1.01] transition-transform duration-200"
           >
-            <div className="text-xl font-medium text-[var(--color-text)]">
+            <div className="text-xl font-medium text-white">
               {element.title}
             </div>
-            <div className="text-[var(--color-text)] opacity-70 mb-6 sm:mb-8 sm:text-xs">
+            <div className="text-white opacity-80 mb-6 sm:mb-8 sm:text-xs">
               {element.location}
               <span className="sm:hidden"> | {element.date}</span>
             </div>
