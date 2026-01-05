@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <PageWrapper>
       <ContentContainer maxWidth="6xl">
-        <div className="flex flex-col items-center gap-8">
-          <div className="flex items-center justify-center gap-4 pt-8 md:pt-12 lg:pt-16">
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex items-center justify-center gap-4 pt-2 md:pt-4 lg:pt-6">
             <img
               src={cocktailIcon}
               alt="Cocktail with music notes"
@@ -29,7 +29,7 @@ export default function Home() {
             <img
               src={cheersCello}
               alt="Lyrical Libations - A celebration of poetry, music, and community"
-              className="w-full md:w-96 lg:w-[500px] h-auto rounded-lg object-cover"
+              className="w-full md:w-96 lg:w-[375px] h-auto rounded-lg object-cover"
               loading="eager"
             />
           </div>
