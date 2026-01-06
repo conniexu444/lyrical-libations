@@ -117,16 +117,19 @@ export default function About() {
             Think the way one would sample a wine flight or a tasting menu, except with music. You'll see each musical sample paired with a libation!
           </p>
           <p className="text-[var(--color-text)] text-xl leading-normal" style={TYPEWRITER_FONT_STYLE}>
-            Every show is a different chamber group at a different bar.
+          Every show invites different chamber groups at different bars.
           </p>
           <p className="text-[var(--color-text)] text-sm leading-normal" style={TYPEWRITER_FONT_STYLE}>
-            Supporting our local musicians (many of whom are our dear friends!) and local bars!
+          Supporting our local musicians (many of whom are our dear friends in the professional classical music world!) and local bars!
           </p>
           <p className="text-[var(--color-text)] text-xl leading-normal" style={TYPEWRITER_FONT_STYLE}>
             Every show encourages experiencing classical music in a new way.
           </p>
           <p className="text-[var(--color-text)] text-sm leading-normal" style={TYPEWRITER_FONT_STYLE}>
             Whether you've never listened to classical music, used to play, or currently play, this space is for you. We encourage mingling after the music ends, so don't be surprised if you leave with a new friend or two, a revived love for music, and another favorite bar…
+          </p>
+          <p className="text-[var(--color-text)] text-sm leading-normal" style={TYPEWRITER_FONT_STYLE}>
+          And in the spirit of community, we are so grateful for the help of our dear friends Connie Xu, for the website, Fergus Ferguson for the cursor, and Keri Zhang, for the doodles
           </p>
         </div>
       </ContentContainer>
