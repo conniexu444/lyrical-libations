@@ -3,6 +3,8 @@ import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import { upcomingShows } from "../data/shows";
 
+const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
+
 export default function ShowDetail() {
   const { date } = useParams<{ date: string }>();
   const show = upcomingShows.find((s) => s.id === date);
@@ -38,7 +40,7 @@ export default function ShowDetail() {
           &larr; Back to Shows
         </Link>
 
-        <div className="border border-[var(--color-text)] border-opacity-20 rounded-lg p-8">
+        <div className="border border-[var(--color-text)] border-opacity-20 rounded-lg p-8" style={TYPEWRITER_FONT_STYLE}>
           <h1 className="text-4xl font-[var(--font-heading)] mb-6">{show.title}</h1>
 
           <div className="space-y-4 text-lg mb-8">
@@ -63,7 +65,41 @@ export default function ShowDetail() {
                 {show.address}
               </a>
             </div>
+
+            {(show.doorsOpen || show.showStarts) && (
+              <div>
+                <p className="text-xl">
+                  {show.doorsOpen && <>Doors open at {show.doorsOpen}</>}
+                  {show.doorsOpen && show.showStarts && ", "}
+                  {show.showStarts && <>show starts at {show.showStarts}</>}
+                </p>
+              </div>
+            )}
           </div>
+
+          {show.musicians && show.musicians.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-2xl font-[var(--font-heading)] mb-3">Musicians</h3>
+              <ul className="text-lg opacity-80 space-y-1">
+                {show.musicians.map((musician, index) => (
+                  <li key={index}>{musician}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {show.ticketing && show.ticketing.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-2xl font-[var(--font-heading)] mb-3">Ticketing Options</h3>
+              <ul className="text-lg opacity-80 space-y-2">
+                {show.ticketing.map((ticket, index) => (
+                  <li key={index}>
+                    <strong>{ticket.price}</strong> – {ticket.description}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {show.details && (
             <div>
