@@ -80,28 +80,28 @@ export default function About() {
           <img
             src={martini}
             alt="Cocktail with music"
-            className="absolute top-4 left-1/4 transform -translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
+            className="absolute top-4 left-[10%] transform -translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
           />
 
           {/* Center left - Violinist */}
           <img
             src={violinist}
             alt="Violinist"
-            className="absolute top-24 left-1/3 transform -translate-x-1/2 w-52 h-52 md:w-72 md:h-72 object-contain"
+            className="absolute top-24 left-[32%] transform -translate-x-1/2 w-52 h-52 md:w-72 md:h-72 object-contain"
           />
 
           {/* Center right - Violin */}
           <img
             src={violinAlone}
             alt="Violin"
-            className="absolute top-28 right-1/3 transform translate-x-1/2 w-40 h-40 md:w-48 md:h-48 object-contain"
+            className="absolute top-28 right-[32%] transform translate-x-1/2 w-40 h-40 md:w-48 md:h-48 object-contain"
           />
 
           {/* Right - Champagne glasses */}
           <img
             src={cheers}
             alt="Cheers"
-            className="absolute top-2 right-1/4 transform translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
+            className="absolute top-2 right-[10%] transform translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
           />
         </div>
 
