@@ -3,6 +3,8 @@ import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import { upcomingShows } from "../data/shows";
 
+const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
+
 export default function Shows() {
   return (
     <PageWrapper>
@@ -15,6 +17,7 @@ export default function Shows() {
               key={show.id}
               to={`/shows/${show.id}`}
               className="block bg-[var(--show-boxes-color)] text-white border border-[var(--color-text)] border-opacity-20 rounded-lg p-6 hover:opacity-90 transition-all cursor-pointer"
+              style={TYPEWRITER_FONT_STYLE}
             >
               <h3 className="text-2xl font-[var(--font-heading)] mb-2">
                 {show.title}
