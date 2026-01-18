@@ -3,6 +3,8 @@ import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
 import musicIcon from "../assets/musicNotesIcon.png";
 
+const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
+
 interface TimelineProps {
   defaultColor?: string;
 }
@@ -11,7 +13,7 @@ export default function Timeline({ defaultColor }: TimelineProps) {
   const colorClass = defaultColor || "bg-[var(--color-link)]";
 
   return (
-    <div>
+    <div style={TYPEWRITER_FONT_STYLE}>
       {timelineElements.map((element: TimelineElement) => (
         <div key={element.id} className="flex m-4 relative">
           {/* Vertical lines for mobile */}
