@@ -1,15 +1,15 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
 import { ImageLightbox } from "../components/ImageLightbox";
 
 const edition1ImageImports = import.meta.glob(
-  "../assets/Edition1/LLArchive*.jpg",
+  "../assets/Edition1/LLArchive*.{jpg,JPG}",
   { eager: true, import: "default" }
 );
 const edition2ImageImports = import.meta.glob(
-  "../assets/Edition2/LLArchive*.jpg",
+  "../assets/Edition2/LLArchive*.{jpg,JPG}",
   { eager: true, import: "default" }
 );
 
@@ -27,6 +27,7 @@ export default function EditionPage() {
   const { id } = useParams<{ id: string }>();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [imageOrientations, setImageOrientations] = useState<Record<number, 'vertical' | 'horizontal'>>({});
 
   const edition = useMemo(
     () => timelineElements.find((e: TimelineElement) => e.id === id),
@@ -37,6 +38,36 @@ export default function EditionPage() {
     () => (edition ? editionImages[edition.id] || [] : []),
     [edition]
   );
+
+  // Detect image orientations
+  useEffect(() => {
+    const loadImageOrientations = async () => {
+      const orientations: Record<number, 'vertical' | 'horizontal'> = {};
+
+      await Promise.all(
+        images.map((src, index) => {
+          return new Promise<void>((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+              orientations[index] = img.height > img.width ? 'vertical' : 'horizontal';
+              resolve();
+            };
+            img.onerror = () => {
+              orientations[index] = 'horizontal';
+              resolve();
+            };
+            img.src = src;
+          });
+        })
+      );
+
+      setImageOrientations(orientations);
+    };
+
+    if (images.length > 0) {
+      loadImageOrientations();
+    }
+  }, [images]);
 
   const openLightbox = (index: number) => {
     setSelectedImageIndex(index);
@@ -75,22 +106,27 @@ export default function EditionPage() {
       {/* Gallery Wall */}
       {images.length > 0 && (
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="overflow-hidden rounded-lg cursor-pointer group relative bg-neutral-100 dark:bg-neutral-900"
-                onClick={() => openLightbox(index)}
-              >
-                <img
-                  src={image}
-                  alt={`${edition.title} image ${index + 1}`}
-                  className="w-full h-full object-cover transition-all duration-200 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200" />
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+            {images.map((image, index) => {
+              const isVertical = imageOrientations[index] === 'vertical';
+              return (
+                <div
+                  key={index}
+                  className={`flex cursor-pointer group relative overflow-hidden ${
+                    isVertical ? 'row-span-2' : 'row-span-1'
+                  }`}
+                  onClick={() => openLightbox(index)}
+                >
+                  <img
+                    src={image}
+                    alt={`${edition.title} image ${index + 1}`}
+                    className="w-full h-full object-cover transition-all duration-200 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200" />
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
