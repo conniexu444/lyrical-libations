@@ -88,16 +88,20 @@ export default function ShowDetail() {
             </div>
           )}
 
-          {show.ticketing && show.ticketing.length > 0 && (
+          {(show.ticketing || show.ticketingComingSoon) && (
             <div className="mb-8">
-              <h3 className="text-2xl font-[var(--font-heading)] mb-3">Ticketing Options</h3>
-              <ul className="text-lg opacity-80 space-y-2">
-                {show.ticketing.map((ticket, index) => (
-                  <li key={index}>
-                    <strong>{ticket.price}</strong> – {ticket.description}
-                  </li>
-                ))}
-              </ul>
+              <h3 className="text-2xl font-[var(--font-heading)] mb-3">Ticketing</h3>
+              {show.ticketingComingSoon ? (
+                <p className="text-lg opacity-80">Coming soon</p>
+              ) : (
+                <ul className="text-lg opacity-80 space-y-2">
+                  {show.ticketing?.map((ticket, index) => (
+                    <li key={index}>
+                      <strong>{ticket.price}</strong> – {ticket.description}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
 

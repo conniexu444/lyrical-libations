@@ -8,6 +8,7 @@ export interface Show {
   showStarts?: string;
   musicians?: string[];
   ticketing?: { price: string; description: string }[];
+  ticketingComingSoon?: boolean;
   details?: string;
 }
 
@@ -25,9 +26,6 @@ export const upcomingShows: Show[] = [
       "Elena Ariza, cello",
       "Lucas Amory, piano"
     ],
-    ticketing: [
-      { price: "$25", description: "$12.50 cover + $12.50 glass of wine" },
-      { price: "$35", description: "Guaranteed seating" }
-    ]
+    ticketingComingSoon: true
   }
 ];
