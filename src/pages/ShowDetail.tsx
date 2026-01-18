@@ -48,17 +48,22 @@ export default function ShowDetail() {
             </div>
 
             <div>
-              <strong className="opacity-80">Location:</strong>
-              <p className="text-xl">{show.location}</p>
+              <strong className="opacity-80">Venue:</strong>
+              <p className="text-xl">{show.venue}</p>
+            </div>
+
+            <div>
+              <strong className="opacity-80">Address:</strong>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.address)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xl hover:opacity-70 transition-opacity underline block"
+              >
+                {show.address}
+              </a>
             </div>
           </div>
-
-          {show.description && (
-            <div className="mb-6">
-              <h3 className="text-2xl font-[var(--font-heading)] mb-3">About</h3>
-              <p className="text-lg opacity-80">{show.description}</p>
-            </div>
-          )}
 
           {show.details && (
             <div>

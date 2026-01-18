@@ -47,7 +47,7 @@ export default function Timeline({ defaultColor }: TimelineProps) {
               {element.title}
             </div>
             <div className="text-white opacity-80 mb-6 sm:mb-8 sm:text-xs">
-              {element.location}
+              {element.venue} - {element.location}
               <span className="sm:hidden"> | {element.date}</span>
             </div>
 

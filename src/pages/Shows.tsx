@@ -22,10 +22,21 @@ export default function Shows() {
               </Link>
               <div className="space-y-1 text-lg opacity-80">
                 <p><strong>Date:</strong> {show.date}</p>
-                <p><strong>Location:</strong> {show.location}</p>
+                <p><strong>Venue:</strong> {show.venue}</p>
+                <p>
+                  <strong>Address:</strong>{" "}
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-70 transition-opacity underline"
+                  >
+                    {show.address}
+                  </a>
+                </p>
               </div>
-              {show.description && (
-                <p className="mt-4 opacity-70">{show.description}</p>
+              {show.details && (
+                <p className="mt-4 opacity-70">{show.details}</p>
               )}
             </div>
           ))}

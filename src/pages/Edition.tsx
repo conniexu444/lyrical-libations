@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
-import { ImageCarousel } from "../components/ImageCarousel";
+import { ImageLightbox } from "../components/ImageLightbox";
 
 const edition1ImageImports = import.meta.glob(
   "../assets/Edition1/LLArchive*.jpg",
@@ -25,6 +25,8 @@ const editionImages: Record<string, string[]> = {
 
 export default function EditionPage() {
   const { id } = useParams<{ id: string }>();
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const edition = useMemo(
     () => timelineElements.find((e: TimelineElement) => e.id === id),
@@ -35,6 +37,11 @@ export default function EditionPage() {
     () => (edition ? editionImages[edition.id] || [] : []),
     [edition]
   );
+
+  const openLightbox = (index: number) => {
+    setSelectedImageIndex(index);
+    setLightboxOpen(true);
+  };
 
   if (!edition) {
     return (
@@ -52,13 +59,50 @@ export default function EditionPage() {
         {edition.title}
       </h1>
 
-      <p className="text-center text-[var(--color-text)] text-lg opacity-80 mb-6">
-        {edition.location} — {edition.date}
-      </p>
+      <div className="text-center text-[var(--color-text)] text-lg opacity-80 mb-8">
+        <p className="font-semibold">{edition.venue}</p>
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(edition.address)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-70 transition-opacity underline"
+        >
+          {edition.address}
+        </a>
+        <p className="mt-2">{edition.date}</p>
+      </div>
 
+      {/* Gallery Wall */}
       {images.length > 0 && (
-        <ImageCarousel images={images} editionTitle={edition.title} />
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-lg cursor-pointer group relative bg-neutral-100 dark:bg-neutral-900"
+                onClick={() => openLightbox(index)}
+              >
+                <img
+                  src={image}
+                  alt={`${edition.title} image ${index + 1}`}
+                  className="w-full h-full object-cover transition-all duration-200 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200" />
+              </div>
+            ))}
+          </div>
+        </div>
       )}
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={images}
+        initialIndex={selectedImageIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        editionTitle={edition.title}
+      />
     </div>
   );
 }
