@@ -17,11 +17,11 @@ export default function SupportUs() {
           </div>
 
           <div className="flex-1">
-            <p className="text-[var(--color-text)] mb-6 text-lg leading-relaxed">
-            With your support we can continue making classical music more accessible and fun, and support our local musicians!  Every contribution helps
+            <p className="text-[var(--color-text)] mb-6 text-lg leading-relaxed" style={{ fontFamily: "RM Typerighter, monospace" }}>
+            With your support we can continue making classical music more accessible and fun, and support our local musicians!  Every contribution helps &lt;3
             </p>
             <div className="flex justify-center">
-              <Button>Donate Here</Button>
+              <Button className="!bg-transparent !text-[#9A031E] !border-[#9A031E] hover:!bg-[#9A031E] hover:!text-white">Donate Here</Button>
             </div>
           </div>
         </div>
