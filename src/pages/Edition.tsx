@@ -12,6 +12,18 @@ const edition2ImageImports = import.meta.glob(
   "../assets/Edition2/LLArchive*.{jpg,JPG}",
   { eager: true, import: "default" }
 );
+const edition3ImageImports = import.meta.glob(
+  "../assets/Edition3/*.{jpg,JPG}",
+  { eager: true, import: "default" }
+);
+const edition4ImageImports = import.meta.glob(
+  "../assets/Edition4/*.{jpg,JPG}",
+  { eager: true, import: "default" }
+);
+const edition5ImageImports = import.meta.glob(
+  "../assets/Edition5/*.{jpg,JPG,png,PNG}",
+  { eager: true, import: "default" }
+);
 
 const editionImages: Record<string, string[]> = {
   "Edition-1": Object.entries(edition1ImageImports)
@@ -19,6 +31,18 @@ const editionImages: Record<string, string[]> = {
     .map(([, path]) => path as string),
 
   "Edition-2": Object.entries(edition2ImageImports)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, path]) => path as string),
+
+  "Edition-3": Object.entries(edition3ImageImports)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, path]) => path as string),
+
+  "Edition-4": Object.entries(edition4ImageImports)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, path]) => path as string),
+
+  "Edition-5": Object.entries(edition5ImageImports)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([, path]) => path as string),
 };

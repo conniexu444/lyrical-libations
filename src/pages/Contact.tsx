@@ -4,11 +4,12 @@ import { Button } from "../components/core/button";
 import { useContactForm } from "../hooks/useContactForm";
 import drinks from "../assets/drinks.png";
 import music from "../assets/music.png";
-import violinist from "../assets/Violinist (1).PNG";
+import violinist from "../assets/violin.PNG";
 import bubbles from "../assets/Bubbles.PNG";
 
 export default function Contact() {
-  const { formData, errors, isSubmitting, handleChange, handleSubmit } = useContactForm();
+  const { formData, errors, isSubmitting, handleChange, handleSubmit } =
+    useContactForm();
 
   return (
     <PageWrapper className="relative overflow-hidden">
@@ -43,10 +44,16 @@ export default function Contact() {
       <ContentContainer maxWidth="2xl" className="mt-20">
         <div className="bg-[var(--color-teal)] border border-[var(--color-link)] rounded-2xl shadow-md p-8 text-white">
           <p className="mb-6 text-lg">
-            Want to collaborate, host us, or just say hi? We'd love to hear from you.
+            Want to collaborate, host us, or just say hi? We'd love to hear from
+            you.
           </p>
 
-          <form className="space-y-4" onSubmit={handleSubmit} role="form" aria-label="Contact form">
+          <form
+            className="space-y-4"
+            onSubmit={handleSubmit}
+            role="form"
+            aria-label="Contact form"
+          >
             <div>
               <label htmlFor="name" className="block mb-1 text-sm font-medium">
                 Name *
@@ -64,7 +71,11 @@ export default function Contact() {
                 aria-describedby={errors.name ? "name-error" : undefined}
               />
               {errors.name && (
-                <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p
+                  id="name-error"
+                  className="mt-1 text-sm text-red-600"
+                  role="alert"
+                >
                   {errors.name}
                 </p>
               )}
@@ -87,14 +98,21 @@ export default function Contact() {
                 aria-describedby={errors.email ? "email-error" : undefined}
               />
               {errors.email && (
-                <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p
+                  id="email-error"
+                  className="mt-1 text-sm text-red-600"
+                  role="alert"
+                >
                   {errors.email}
                 </p>
               )}
             </div>
 
             <div>
-              <label htmlFor="message" className="block mb-1 text-sm font-medium">
+              <label
+                htmlFor="message"
+                className="block mb-1 text-sm font-medium"
+              >
                 Message *
               </label>
               <textarea
@@ -110,7 +128,11 @@ export default function Contact() {
                 aria-describedby={errors.message ? "message-error" : undefined}
               />
               {errors.message && (
-                <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p
+                  id="message-error"
+                  className="mt-1 text-sm text-red-600"
+                  role="alert"
+                >
                   {errors.message}
                 </p>
               )}
