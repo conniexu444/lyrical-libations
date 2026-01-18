@@ -11,34 +11,34 @@ export default function Shows() {
 
         <div className="space-y-6">
           {upcomingShows.map((show) => (
-            <div
+            <Link
               key={show.id}
-              className="bg-[var(--show-boxes-color)] text-white border border-[var(--color-text)] border-opacity-20 rounded-lg p-6 hover:opacity-90 transition-all"
+              to={`/shows/${show.id}`}
+              className="block bg-[var(--show-boxes-color)] text-white border border-[var(--color-text)] border-opacity-20 rounded-lg p-6 hover:opacity-90 transition-all cursor-pointer"
             >
-              <Link to={`/shows/${show.id}`}>
-                <h3 className="text-2xl font-[var(--font-heading)] mb-2 hover:opacity-70 transition-opacity cursor-pointer">
-                  {show.title}
-                </h3>
-              </Link>
+              <h3 className="text-2xl font-[var(--font-heading)] mb-2">
+                {show.title}
+              </h3>
               <div className="space-y-1 text-lg opacity-80">
                 <p><strong>Date:</strong> {show.date}</p>
                 <p><strong>Venue:</strong> {show.venue}</p>
                 <p>
                   <strong>Address:</strong>{" "}
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-70 transition-opacity underline"
+                  <span
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.address)}`, '_blank');
+                    }}
+                    className="hover:opacity-70 transition-opacity underline cursor-pointer"
                   >
                     {show.address}
-                  </a>
+                  </span>
                 </p>
               </div>
               {show.details && (
                 <p className="mt-4 opacity-70">{show.details}</p>
               )}
-            </div>
+            </Link>
           ))}
         </div>
       </ContentContainer>
