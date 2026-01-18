@@ -83,18 +83,15 @@ export function useContactForm(): UseContactFormReturn {
       setIsSubmitting(true);
 
       try {
-        // TODO: Implement actual form submission logic
-        // For now, just simulate a delay
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-
-        console.log("Form submitted:", formData);
+        const subject = encodeURIComponent(`Contact from ${formData.name}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        );
+        window.location.href = `mailto:lyricallibationsss@gmail.com?subject=${subject}&body=${body}`;
 
         // Reset form on success
         setFormData(INITIAL_FORM_STATE);
         setErrors({});
-
-        // Show success message (can be extended with a toast/notification)
-        alert("Message sent successfully!");
       } catch (error) {
         console.error("Form submission error:", error);
         setErrors({ message: "Failed to send message. Please try again." });
