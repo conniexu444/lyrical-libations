@@ -81,7 +81,7 @@ export default function About() {
             className="text-[var(--color-text)] text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
-            <u>Our story</u> started in 2024, as we were searching for meaning
+            <u>Our story</u> started in 2024, as we were searching for deeper meaning
             in our music.
           </p>
           <p
@@ -103,9 +103,9 @@ export default function About() {
             on how we could continue bringing classical music to spaces beyond
             the concert halls after this residency was over. As the flavors
             mixed with the music on our minds, we began to see how the senses of
-            taste and sound enhance each other — by pairing flavor notes with
-            pieces of music, classical music can be experienced in new and
-            accessible ways. Most importantly, it was fun! And that is when
+            taste and sound could enhance each other, and that by pairing flavor notes with
+            pieces of music, classical music might be experienced in a new and
+            accessible way. Most importantly, it was fun! And that is when
             Lyrical Libations was born.
           </p>
         </div>
@@ -159,7 +159,7 @@ export default function About() {
             className="text-[var(--color-text)] text-sm leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
-            Think the way one would sample a wine flight or a tasting menu,
+            Think the way one would experience a wine flight or a tasting menu,
             except with music. You'll see each musical sample paired with a
             libation!
           </p>
@@ -167,7 +167,7 @@ export default function About() {
             className="text-[var(--color-text)] text-xl leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
-            Every show invites different chamber groups at different bars.
+            Every show invites different ensembles at different bars.
           </p>
           <p
             className="text-[var(--color-text)] text-sm leading-normal"
@@ -189,7 +189,7 @@ export default function About() {
             Whether you've never listened to classical music, used to play, or
             currently play, this space is for you. We encourage mingling after
             the music ends, so don't be surprised if you leave with a new friend
-            or two, a revived love for music, and another favorite bar…
+            or two, a reignited love for music, and another favorite bar…
           </p>
           <p
             className="text-[var(--color-text)] text-sm leading-normal"
