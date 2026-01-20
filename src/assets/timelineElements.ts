@@ -1,7 +1,7 @@
 import type { TimelineElement } from "../types/timeline";
 import edition2 from "../assets/03-18-edition-2.png";
 import edition1 from "../assets/02-19-edition-1.png";
-import edition3Placeholder from "../assets/Edition3/000050250001.jpg";
+import edition3Poster from "../assets/Edition3/COVER PIC.jpg";
 import edition4Poster from "../assets/Edition4/COVER PIC.jpg";
 import edition5Poster from "../assets/Edition5/COVER PIC.png";
 
@@ -37,7 +37,7 @@ const timelineElements: TimelineElement[] = [
     date: "Sep 2025",
     icon: "work",
     color: "purple",
-    poster: edition3Placeholder,
+    poster: edition3Poster,
   },
   {
     id: "Edition-4",

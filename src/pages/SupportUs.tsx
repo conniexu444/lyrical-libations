@@ -21,7 +21,9 @@ export default function SupportUs() {
             With your support we can continue making classical music more accessible and fun, and support our local musicians!  Every contribution helps &lt;3
             </p>
             <div className="flex justify-center">
-              <Button className="!bg-transparent !text-[#9A031E] !border-[#9A031E] hover:!bg-[#9A031E] hover:!text-white">Donate Here</Button>
+              <a href="https://www.paypal.com/paypalme/cocomivln" target="_blank" rel="noopener noreferrer">
+                <Button className="!bg-transparent !text-[#9A031E] !border-[#9A031E] hover:!bg-[#9A031E] hover:!text-white">Donate Here</Button>
+              </a>
             </div>
           </div>
         </div>
