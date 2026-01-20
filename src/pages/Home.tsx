@@ -16,7 +16,7 @@ export default function Home() {
               alt="Cocktail with music notes"
               className="w-12 h-auto md:w-16 lg:w-20 flex-shrink-0 object-contain"
             />
-            <h1 className="text-[var(--color-text)] text-base md:text-lg lg:text-xl text-center" style={HEADING_FONT_STYLE}>
+            <h1 className="text-[var(--color-text)] text-sm md:text-base lg:text-lg text-center" style={HEADING_FONT_STYLE}>
               We pair classical music with cocktails at your favorite NYC bars — tasting menu style!
             </h1>
             <img
