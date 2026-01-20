@@ -3,7 +3,7 @@ import { ContentContainer } from "../components/ContentContainer";
 import cheersCello from "../assets/celloWithDrinks.png";
 import cocktailIcon from "../assets/drinksMusic.png";
 
-const HEADING_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace', lineHeight: '1.1' };
+const HEADING_FONT_STYLE = { fontFamily: "'RM Typerighter', 'American Typewriter', 'Courier New', Courier, monospace", lineHeight: '1.1' };
 
 export default function Home() {
   return (
