@@ -66,7 +66,7 @@ export default function Nav() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col items-center gap-8 text-2xl"
+              className="flex flex-col items-center gap-8 text-4xl"
               style={{ fontFamily: 'RM Typerighter, monospace' }}
             >
               {routes

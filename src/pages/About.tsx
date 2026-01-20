@@ -37,7 +37,7 @@ export default function About() {
 
         <div className="space-y-8">
           <p
-            className="text-[var(--color-text)] text-xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             The two of us met in 2018 and became friends playing chamber music
@@ -49,7 +49,7 @@ export default function About() {
             everyone, regardless of musical background or knowledge.
           </p>
           <p
-            className="text-[var(--color-text)] text-xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             Above all, it's a reminder that the essence of music is connection.
@@ -78,14 +78,14 @@ export default function About() {
 
         <div className="space-y-8">
           <p
-            className="text-[var(--color-text)] text-xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             <u>Our story</u> started in 2024, as we were searching for deeper meaning
             in our music.
           </p>
           <p
-            className="text-[var(--color-text)] text-xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             While working with a non-profit to bring concerts to individuals in
@@ -95,7 +95,7 @@ export default function About() {
             performer in classical music spaces.
           </p>
           <p
-            className="text-[var(--color-text)] text-xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             One night during this trip, we sat at a bar, sipping on some fun,
@@ -144,19 +144,19 @@ export default function About() {
         {/* The Premise section */}
         <div className="space-y-8 mt-6 mb-12">
           <h2
-            className="text-[var(--color-text)] text-3xl md:text-2xl font-bold mb-2"
+            className="text-[var(--color-text)] text-4xl md:text-2xl font-bold mb-2"
             style={TYPEWRITER_FONT_STYLE}
           >
             The Premise
           </h2>
           <p
-            className="text-[var(--color-text)] text-2xl md:text-xl leading-normal"
+            className="text-[var(--color-text)] text-3xl md:text-xl leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             At every show, the musical program is the drink menu!
           </p>
           <p
-            className="text-[var(--color-text)] text-lg md:text-sm leading-normal"
+            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             Think the way one would experience a wine flight or a tasting menu,
@@ -164,26 +164,26 @@ export default function About() {
             libation!
           </p>
           <p
-            className="text-[var(--color-text)] text-2xl md:text-xl leading-normal"
+            className="text-[var(--color-text)] text-3xl md:text-xl leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             Every show invites different ensembles at different bars.
           </p>
           <p
-            className="text-[var(--color-text)] text-lg md:text-sm leading-normal"
+            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             Supporting our local musicians (many of whom are our dear friends in
             the professional classical music world!) and local bars!
           </p>
           <p
-            className="text-[var(--color-text)] text-2xl md:text-xl leading-normal"
+            className="text-[var(--color-text)] text-3xl md:text-xl leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             Every show encourages experiencing classical music in a new way.
           </p>
           <p
-            className="text-[var(--color-text)] text-lg md:text-sm leading-normal"
+            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             Whether you've never listened to classical music, used to play, or
@@ -192,7 +192,7 @@ export default function About() {
             or two, a reignited love for music, and another favorite bar…
           </p>
           <p
-            className="text-[var(--color-text)] text-lg md:text-sm leading-normal"
+            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             And in the spirit of community, we are so grateful for the help of
