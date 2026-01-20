@@ -3,7 +3,7 @@ import type { TimelineElement } from "../types/timeline";
 import timelineElements from "../assets/timelineElements";
 import musicIcon from "../assets/musicNotesIcon.png";
 
-const TYPEWRITER_FONT_STYLE = { fontFamily: "var(--font-typewriter)" };
+const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
 
 interface TimelineProps {
   defaultColor?: string;

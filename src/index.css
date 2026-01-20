@@ -17,6 +17,13 @@
   font-style: normal;
 }
 
+/* Override typewriter font to Courier New on mobile */
+@media (max-width: 767px) {
+  [style*="RM Typerighter"] {
+    font-family: 'Courier New', Courier, monospace !important;
+  }
+}
+
 @keyframes bounce-slow {
   0%, 100% {
     transform: translateY(0);
@@ -48,13 +55,6 @@
   :root {
     --font-display: 'Neka', serif;
     --font-body: 'Lato', sans-serif;
-    --font-typewriter: 'RM Typerighter', 'Courier New', Courier, monospace;
-  }
-
-  @media (max-width: 767px) {
-    :root {
-      --font-typewriter: 'Courier New', Courier, monospace;
-    }
   }
 
   html, body {
@@ -110,4 +110,3 @@
   --font-display: "Neka", serif;
   --font-body: "Lato", sans-serif;
 }
-
