@@ -45,10 +45,10 @@ export default function Timeline({ defaultColor }: TimelineProps) {
             to={`/archives/${element.id}`}
             className="border border-[var(--color-link)] rounded-lg px-8 py-4 bg-[var(--show-boxes-color)] w-full text-center z-10 sm:w-96 hover:scale-[1.01] transition-transform duration-200"
           >
-            <div className="text-xl font-medium text-white">
+            <div className="text-base md:text-xl font-medium text-white">
               {element.title}
             </div>
-            <div className="text-white opacity-80 mb-6 sm:mb-8 sm:text-xs">
+            <div className="text-sm md:text-xs text-white opacity-80 mb-6 sm:mb-8">
               {element.venue} - {element.location}
               <span className="sm:hidden"> | {element.date}</span>
             </div>
