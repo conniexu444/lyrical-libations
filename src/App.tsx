@@ -22,12 +22,12 @@ export default function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
-        <div className="w-full px-16 pt-8 flex justify-between items-center">
+        <div className="w-full px-6 md:px-16 pt-8 flex justify-between items-center">
           <Link to="/" className="flex-shrink-0">
             <img src={logo} alt="Lyrical Libations" className="w-16 h-16 hover:opacity-70 transition-opacity" />
           </Link>
           <div className="flex flex-col items-end">
-            <Link to="/">
+            <Link to="/" className="hidden md:block">
               <AnimatedTitle />
             </Link>
             <Nav />
