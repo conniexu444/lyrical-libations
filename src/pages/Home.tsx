@@ -33,6 +33,15 @@ export default function Home() {
               loading="eager"
             />
           </div>
+          <div className="flex justify-center w-full">
+            <iframe
+              className="w-full max-w-2xl aspect-video"
+              src="https://www.youtube.com/embed/kCqkmSYao-o"
+              title="Lyrical Libations Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </ContentContainer>
     </PageWrapper>
