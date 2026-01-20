@@ -3,7 +3,7 @@ import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import { upcomingShows } from "../data/shows";
 
-const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
+const TYPEWRITER_FONT_STYLE = { fontFamily: "var(--font-typewriter)" };
 
 export default function Shows() {
   return (

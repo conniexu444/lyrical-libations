@@ -17,7 +17,7 @@ export default function SupportUs() {
           </div>
 
           <div className="flex-1">
-            <p className="text-[var(--color-text)] mb-6 text-lg leading-relaxed" style={{ fontFamily: "RM Typerighter, monospace" }}>
+            <p className="text-[var(--color-text)] mb-6 text-lg leading-relaxed" style={{ fontFamily: "var(--font-typewriter)" }}>
             With your support we can continue making classical music more accessible and fun, and support our local musicians!  Every contribution helps &lt;3
             </p>
             <div className="flex justify-center">

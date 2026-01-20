@@ -48,6 +48,13 @@
   :root {
     --font-display: 'Neka', serif;
     --font-body: 'Lato', sans-serif;
+    --font-typewriter: 'RM Typerighter', 'Courier New', Courier, monospace;
+  }
+
+  @media (max-width: 767px) {
+    :root {
+      --font-typewriter: 'Courier New', Courier, monospace;
+    }
   }
 
   html, body {

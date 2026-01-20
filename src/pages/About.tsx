@@ -9,7 +9,7 @@ import violinist from "../assets/about/violinist.PNG";
 import violinAlone from "../assets/about/violinAlone.png";
 import cheers from "../assets/cheers.png";
 
-const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
+const TYPEWRITER_FONT_STYLE = { fontFamily: "var(--font-typewriter)" };
 
 export default function About() {
   return (

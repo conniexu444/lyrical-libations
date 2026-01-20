@@ -30,7 +30,7 @@ export default function Nav() {
       </button>
 
       {/* Desktop Nav - Simple horizontal layout */}
-      <nav className="hidden md:flex gap-8 pt-4 text-base justify-end text-right" style={{ fontFamily: 'RM Typerighter, monospace' }}>
+      <nav className="hidden md:flex gap-8 pt-4 text-base justify-end text-right" style={{ fontFamily: 'var(--font-typewriter)' }}>
         {routes
           .filter((link) => link.href !== "/")
           .map((link) => {
@@ -67,7 +67,7 @@ export default function Nav() {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
               className="flex flex-col items-center gap-8 text-4xl"
-              style={{ fontFamily: 'RM Typerighter, monospace' }}
+              style={{ fontFamily: 'var(--font-typewriter)' }}
             >
               {routes
                 .filter((link) => link.href !== "/")
