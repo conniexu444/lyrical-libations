@@ -36,6 +36,15 @@ export default function About() {
           </div>
         </div>
 
+        {/* The Premise section */}
+        <div className="mt-6 mb-10">
+          <img
+            src={premiseImg}
+            alt="The Premise - A pairing of drinks and music, different ensembles at different bars, new ways of experiencing classical music"
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
+
         <div className="space-y-8">
           <p
             className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
@@ -139,15 +148,6 @@ export default function About() {
             src={cheers}
             alt="Cheers"
             className="absolute top-2 right-[10%] transform translate-x-1/2 w-28 h-28 md:w-36 md:h-36 object-contain"
-          />
-        </div>
-
-        {/* The Premise section */}
-        <div className="mt-6 mb-12">
-          <img
-            src={premiseImg}
-            alt="The Premise - A pairing of drinks and music, different ensembles at different bars, new ways of experiencing classical music"
-            className="w-full h-auto rounded-lg"
           />
         </div>
       </ContentContainer>
