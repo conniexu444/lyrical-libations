@@ -22,7 +22,7 @@ export const upcomingShows: Show[] = [
     doorsOpen: "7:30 PM",
     showStarts: "8 PM",
     musicians: [
-      "Trio Çava"
+      "Trio Çava",
       "Yebin Yoo, violin",
       "Elena Ariza, cello",
       "Lucas Amory, piano"
