@@ -8,6 +8,7 @@ import martini from "../assets/about/glass-with-music-notes-and-lemon.PNG";
 import violinist from "../assets/about/violinist.PNG";
 import violinAlone from "../assets/about/violinAlone.png";
 import cheers from "../assets/cheers.png";
+import premiseImg from "../assets/premise-img-final.png";
 
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
 
@@ -142,63 +143,12 @@ export default function About() {
         </div>
 
         {/* The Premise section */}
-        <div className="space-y-8 mt-6 mb-12">
-          <h2
-            className="text-[var(--color-text)] text-4xl md:text-2xl font-bold mb-2"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            The Premise
-          </h2>
-          <p
-            className="text-[var(--color-text)] text-3xl md:text-xl leading-normal"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            At every show, the musical program is the drink menu!
-          </p>
-          <p
-            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            Think the way one would experience a wine flight or a tasting menu,
-            except with music. You'll see each musical sample paired with a
-            libation!
-          </p>
-          <p
-            className="text-[var(--color-text)] text-3xl md:text-xl leading-normal"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            Every show invites different ensembles at different bars.
-          </p>
-          <p
-            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            Supporting our local musicians (many of whom are our dear friends in
-            the professional classical music world!) and local bars!
-          </p>
-          <p
-            className="text-[var(--color-text)] text-3xl md:text-xl leading-normal"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            Every show encourages experiencing classical music in a new way.
-          </p>
-          <p
-            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            Whether you've never listened to classical music, used to play, or
-            currently play, this space is for you. We encourage mingling after
-            the music ends, so don't be surprised if you leave with a new friend
-            or two, a reignited love for music, and another favorite bar…
-          </p>
-          <p
-            className="text-[var(--color-text)] text-xl md:text-sm leading-normal"
-            style={TYPEWRITER_FONT_STYLE}
-          >
-            And in the spirit of community, we are so grateful for the help of
-            our dear friends Connie Xu, for the website, Fergus Ferguson for the
-            cursor, and Keri Zhang, for the doodles
-          </p>
+        <div className="mt-6 mb-12">
+          <img
+            src={premiseImg}
+            alt="The Premise - A pairing of drinks and music, different ensembles at different bars, new ways of experiencing classical music"
+            className="w-full h-auto rounded-lg"
+          />
         </div>
       </ContentContainer>
     </PageWrapper>
