@@ -59,7 +59,7 @@ export default function Nav() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden fixed inset-0 z-40 flex items-center justify-center"
-            style={{ backgroundColor: "#293724" }}
+            style={{ backgroundColor: "#013927" }}
           >
             <motion.nav
               initial={{ opacity: 0, y: 20 }}
