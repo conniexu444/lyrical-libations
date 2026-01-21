@@ -41,7 +41,7 @@ export default function About() {
           <img
             src={premiseImg}
             alt="The Premise - A pairing of drinks and music, different ensembles at different bars, new ways of experiencing classical music"
-            className="w-full h-auto rounded-lg"
+            className="w-full md:w-2/3 lg:w-1/2 h-auto rounded-lg mx-auto"
           />
         </div>
 
