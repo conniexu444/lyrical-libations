@@ -8,7 +8,7 @@ import martini from "../assets/about/glass-with-music-notes-and-lemon.PNG";
 import violinist from "../assets/about/violinist.PNG";
 import violinAlone from "../assets/about/violinAlone.png";
 import cheers from "../assets/cheers.png";
-import premiseImg from "../assets/premise-img-final.png";
+import premiseImg from "../assets/Pink and Red Pattern Cocktail Menu.png";
 
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
 
