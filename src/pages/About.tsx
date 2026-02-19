@@ -100,7 +100,7 @@ export default function About() {
           >
             While working with a non-profit to bring concerts to individuals in
             carceral systems, we finally felt that our music had a bigger
-            purpose. It felt like everyone in the room needed that music, and
+            purpose, and
             there were no longer the usual barriers between the audience and
             performer in classical music spaces.
           </p>
