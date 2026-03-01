@@ -24,6 +24,10 @@ const edition5ImageImports = import.meta.glob(
   "../assets/Edition5/*.{jpg,JPG,png,PNG}",
   { eager: true, import: "default" }
 );
+const edition6ImageImports = import.meta.glob(
+  "../assets/Edition6/*.{jpg,JPG}",
+  { eager: true, import: "default" }
+);
 
 const editionImages: Record<string, string[]> = {
   "Edition-1": Object.entries(edition1ImageImports)
@@ -43,6 +47,10 @@ const editionImages: Record<string, string[]> = {
     .map(([, path]) => path as string),
 
   "Edition-5": Object.entries(edition5ImageImports)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, path]) => path as string),
+
+  "Edition-6": Object.entries(edition6ImageImports)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([, path]) => path as string),
 };

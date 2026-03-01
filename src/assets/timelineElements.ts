@@ -4,18 +4,9 @@ import edition1 from "../assets/02-19-edition-1.png";
 import edition3Poster from "../assets/Edition3/COVER PIC.jpg";
 import edition4Poster from "../assets/Edition4/COVER PIC.jpg";
 import edition5Poster from "../assets/Edition5/COVER PIC.png";
+import edition6Poster from "../assets/Edition6/Cover pic.jpg";
 
 const timelineElements: TimelineElement[] = [
-  {
-    id: "Edition-6",
-    title: "Edition 6",
-    venue: "Tawny",
-    address: "173 Henry St, New York, NY 10002",
-    location: "New York, NY",
-    date: "Feb 2026",
-    icon: "work",
-    color: "purple",
-  },
   {
     id: "Edition-1",
     title: "Edition 1",
@@ -70,6 +61,17 @@ const timelineElements: TimelineElement[] = [
     icon: "work",
     color: "purple",
     poster: edition5Poster,
+  },
+  {
+    id: "Edition-6",
+    title: "Edition 6",
+    venue: "Tawny",
+    address: "173 Henry St, New York, NY 10002",
+    location: "New York, NY",
+    date: "Feb 2026",
+    icon: "work",
+    color: "purple",
+    poster: edition6Poster,
   },
 ];
 
