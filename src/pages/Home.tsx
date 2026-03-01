@@ -1,15 +1,32 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
-import cheersCello from "../assets/celloWithDrinks.png";
 import cocktailIcon from "../assets/drinksMusic.png";
 import cocoGaby from "../assets/about/coco-gaby-cocktails.png";
+
+const rotatingImageImports = import.meta.glob(
+  "../assets/FRONT PAGE ROTATING IMAGES/*.{jpg,JPG}",
+  { eager: true, import: "default" }
+);
+const rotatingImages = Object.entries(rotatingImageImports)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, path]) => path as string);
 
 const HEADING_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace', lineHeight: '1.1' };
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
 
 export default function Home() {
   const navigate = useNavigate();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (rotatingImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % rotatingImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <PageWrapper>
@@ -55,11 +72,18 @@ export default function Home() {
 
             {/* Right side: doodle + blurb + button */}
             <div className="flex flex-col items-center md:items-start">
-              <img
-                src={cheersCello}
-                alt="Cheers doodle"
-                className="w-20 md:w-24 h-auto mb-4"
-              />
+              <div className="relative w-32 md:w-40 aspect-[4/5] mb-4 rounded-lg overflow-hidden">
+                {rotatingImages.map((src, index) => (
+                  <img
+                    key={index}
+                    src={src}
+                    alt={`Lyrical Libations photo ${index + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      index === currentImageIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                ))}
+              </div>
               <p
                 className="text-[#5f0f40] text-lg md:text-base leading-relaxed mb-6"
                 style={TYPEWRITER_FONT_STYLE}
