@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import banner from "../assets/about/banner.png";
@@ -8,11 +9,33 @@ import martini from "../assets/about/glass-with-music-notes-and-lemon.PNG";
 import violinist from "../assets/about/violinist.PNG";
 import violinAlone from "../assets/about/violinAlone.png";
 import cheers from "../assets/cheers.png";
-import premiseImg from "../assets/Pink and Red Pattern Cocktail Menu.png";
+
+const premiseImageImports = import.meta.glob(
+  "../assets/Each drink is paired*.png",
+  { eager: true, import: "default" }
+);
+const premiseImages = Object.entries(premiseImageImports)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, path]) => path as string);
 
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
 
 export default function About() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const goToNext = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % premiseImages.length);
+  }, []);
+
+  const goToPrev = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + premiseImages.length) % premiseImages.length);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(goToNext, 5000);
+    return () => clearInterval(interval);
+  }, [goToNext]);
+
   return (
     <PageWrapper>
       <ContentContainer>
@@ -36,13 +59,49 @@ export default function About() {
           </div>
         </div>
 
-        {/* The Premise section */}
+        {/* The Premise gallery */}
         <div id="premise" className="mt-6 mb-10 scroll-mt-24">
-          <img
-            src={premiseImg}
-            alt="The Premise - A pairing of drinks and music, different ensembles at different bars, new ways of experiencing classical music"
-            className="w-full md:w-2/3 lg:w-1/2 h-auto rounded-lg mx-auto"
-          />
+          <div className="group relative w-full md:w-5/6 lg:w-3/4 mx-auto">
+            <div className="relative overflow-hidden">
+              {premiseImages.map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`Each drink is paired with a piece of music - ${index + 1}`}
+                  className={`w-full h-auto transition-opacity duration-700 ${
+                    index === currentSlide ? "opacity-100" : "opacity-0 absolute inset-0"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Navigation arrows */}
+            <button
+              onClick={goToPrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all cursor-pointer opacity-0 group-hover:opacity-100"
+            >
+              &#8249;
+            </button>
+            <button
+              onClick={goToNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all cursor-pointer opacity-0 group-hover:opacity-100"
+            >
+              &#8250;
+            </button>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-3">
+              {premiseImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${
+                    index === currentSlide ? "bg-[var(--color-text)]" : "bg-[var(--color-text)]/30"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="space-y-8">
