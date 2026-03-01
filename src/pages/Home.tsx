@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import cheersCello from "../assets/celloWithDrinks.png";
@@ -9,6 +9,7 @@ const HEADING_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace', lineHeight
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
 
 export default function Home() {
+  const navigate = useNavigate();
 
   return (
     <PageWrapper>
@@ -70,13 +71,18 @@ export default function Home() {
                 playful, and accessible, while fostering a tight-knit and welcoming
                 community.
               </p>
-              <Link
-                to="/about#premise"
-                className="inline-block px-8 py-3 border border-[var(--color-text)] rounded-full hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-all text-[var(--color-text)] text-base"
+              <button
+                onClick={() => {
+                  navigate("/about");
+                  setTimeout(() => {
+                    document.getElementById("premise")?.scrollIntoView({ behavior: "smooth" });
+                  }, 150);
+                }}
+                className="inline-block px-8 py-3 border border-[var(--color-text)] rounded-full hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-all text-[var(--color-text)] text-base cursor-pointer"
                 style={TYPEWRITER_FONT_STYLE}
               >
                 MENU
-              </Link>
+              </button>
             </div>
           </div>
         </div>
