@@ -3,7 +3,7 @@ import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import cheersCello from "../assets/celloWithDrinks.png";
 import cocktailIcon from "../assets/drinksMusic.png";
-import cocoGaby from "../assets/about/coco-gaby-cocktails.png";
+import cocoGaby from "../assets/CocoAndGabyFrontPage.png";
 
 const HEADING_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace', lineHeight: '1.1' };
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
@@ -48,8 +48,7 @@ export default function Home() {
               <img
                 src={cocoGaby}
                 alt="Coco and Gaby"
-                className="w-48 md:w-64 h-auto rounded-lg object-cover"
-                style={{ aspectRatio: "4/5" }}
+                className="w-48 md:w-64 h-auto"
               />
             </div>
 
