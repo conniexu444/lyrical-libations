@@ -10,23 +10,27 @@ export interface Show {
   ticketing?: { price: string; description: string }[];
   ticketingComingSoon?: boolean;
   details?: string;
+  payLink?: string;
 }
 
 export const upcomingShows: Show[] = [
   {
-    id: "2026-02-04",
-    title: "Lyrical Libations: edition #6",
-    date: "Feb 4, 2026",
-    venue: "Tawny",
-    address: "173 Henry St. New York City, New York 10002",
-    doorsOpen: "7:30 PM",
-    showStarts: "8 PM",
+    id: "2026-04-26",
+    title: "Lyrical Libations: edition #7 — happy hour edition!",
+    date: "Apr 26, 2026",
+    venue: "TBD",
+    address: "TBD",
+    doorsOpen: "5:30 PM",
+    showStarts: "6 PM",
     musicians: [
-      "Trio Çava",
-      "Yebin Yoo, violin",
-      "Elena Ariza, cello",
-      "Lucas Amory, piano"
+      "Poiesis Quartet",
+      "Sarah Ying Ma, violin",
+      "Max Ball, violin",
+      "Jasper de Boor, viola",
+      "Drew Dansby, cello"
     ],
-    ticketingComingSoon: true
+    details: "Happy hour edition! Mingle til 9.",
+    ticketingComingSoon: true,
+    payLink: "https://www.paypal.com/paypalme/cocomivln"
   }
 ];

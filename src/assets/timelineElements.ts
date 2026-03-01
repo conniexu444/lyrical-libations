@@ -7,6 +7,16 @@ import edition5Poster from "../assets/Edition5/COVER PIC.png";
 
 const timelineElements: TimelineElement[] = [
   {
+    id: "Edition-6",
+    title: "Edition 6",
+    venue: "Tawny",
+    address: "173 Henry St, New York, NY 10002",
+    location: "New York, NY",
+    date: "Feb 2026",
+    icon: "work",
+    color: "purple",
+  },
+  {
     id: "Edition-1",
     title: "Edition 1",
     venue: "Hide & Seek",

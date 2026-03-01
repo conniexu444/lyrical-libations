@@ -105,6 +105,20 @@ export default function ShowDetail() {
             </div>
           )}
 
+          {show.payLink && (
+            <div className="mb-8">
+              <h3 className="text-2xl font-[var(--font-heading)] mb-3">Pay What You Wish</h3>
+              <a
+                href={show.payLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 border border-[var(--color-text)] rounded hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-all"
+              >
+                Pay via PayPal
+              </a>
+            </div>
+          )}
+
           {show.details && (
             <div>
               <h3 className="text-2xl font-[var(--font-heading)] mb-3">Details</h3>
