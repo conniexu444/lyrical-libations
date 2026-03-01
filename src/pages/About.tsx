@@ -37,7 +37,7 @@ export default function About() {
         </div>
 
         {/* The Premise section */}
-        <div className="mt-6 mb-10">
+        <div id="premise" className="mt-6 mb-10 scroll-mt-24">
           <img
             src={premiseImg}
             alt="The Premise - A pairing of drinks and music, different ensembles at different bars, new ways of experiencing classical music"
