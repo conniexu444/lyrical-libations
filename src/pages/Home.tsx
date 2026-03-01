@@ -3,7 +3,7 @@ import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
 import cheersCello from "../assets/celloWithDrinks.png";
 import cocktailIcon from "../assets/drinksMusic.png";
-import cocoGaby from "../assets/CocoAndGabyFrontPage.png";
+import cocoGaby from "../assets/CocoAndGabyFinal.png";
 
 const HEADING_FONT_STYLE = { fontFamily: 'RM Typerighter, monospace', lineHeight: '1.1' };
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
