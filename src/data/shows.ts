@@ -17,11 +17,12 @@ export const upcomingShows: Show[] = [
   {
     id: "2026-04-26",
     title: "Lyrical Libations: edition #7 — happy hour edition!",
-    date: "Apr 26, 2026",
-    venue: "TBD",
-    address: "TBD",
-    doorsOpen: "5:30 PM",
-    showStarts: "6 PM",
+    date: "SUN Apr 26, 2026",
+    venue: "Fiction Bk",
+    address: "308 Hooper St, Brooklyn, NY",
+    Doors: "5:30 PM",
+    Music: "6 PM",
+    Mingle: "'til 9 PM"
     musicians: [
       "Poiesis Quartet",
       "Sarah Ying Ma, violin",
@@ -29,7 +30,7 @@ export const upcomingShows: Show[] = [
       "Jasper de Boor, viola",
       "Drew Dansby, cello"
     ],
-    details: "Happy hour edition! Mingle til 9.",
+    details: "Celebrate Spring by spending happy hour with the Poiesis Quartet! They'll be presenting a fresh & fruity program paired with custom-made cocktails. Tix are pay-what-you-wish",
     ticketingComingSoon: true,
     payLink: "https://www.paypal.com/paypalme/cocomivln"
   }
