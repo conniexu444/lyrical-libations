@@ -49,7 +49,7 @@ export default function About() {
             />
           </div>
           <div className="flex-1">
-            <p className="text-[var(--color-text)] text-2xl leading-relaxed italic">
+            <p className="text-[var(--color-text)] text-lg md:text-xl leading-relaxed italic">
               Lyrical Libations is a creative safe space for both the performer
               and audience, a place where you're free to enjoy art on your own
               terms, curated with love by us.
@@ -78,13 +78,13 @@ export default function About() {
             {/* Navigation arrows */}
             <button
               onClick={goToPrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all cursor-pointer opacity-0 group-hover:opacity-100"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all cursor-pointer opacity-100 md:opacity-0 md:group-hover:opacity-100"
             >
               &#8249;
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all cursor-pointer opacity-0 group-hover:opacity-100"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all cursor-pointer opacity-100 md:opacity-0 md:group-hover:opacity-100"
             >
               &#8250;
             </button>
@@ -106,7 +106,7 @@ export default function About() {
 
         <div className="space-y-8">
           <p
-            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-lg md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             The two of us met in 2018 and became friends playing chamber music
@@ -118,7 +118,7 @@ export default function About() {
             everyone, regardless of musical background or knowledge.
           </p>
           <p
-            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-lg md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             Above all, it's a reminder that the essence of music is connection.
@@ -147,14 +147,14 @@ export default function About() {
 
         <div className="space-y-8">
           <p
-            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-lg md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             <u>Our story</u> started in 2024, as we were searching for deeper meaning
             in our music.
           </p>
           <p
-            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-lg md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             While working with a non-profit to bring concerts to individuals in
@@ -164,7 +164,7 @@ export default function About() {
             performer in classical music spaces.
           </p>
           <p
-            className="text-[var(--color-text)] text-2xl md:text-base leading-normal"
+            className="text-[var(--color-text)] text-lg md:text-base leading-normal"
             style={TYPEWRITER_FONT_STYLE}
           >
             One night during this trip, we sat at a bar, sipping on some fun,
