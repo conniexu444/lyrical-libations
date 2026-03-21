@@ -392,7 +392,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
     ]);
     if (error) throw new Error(error.message);
     setAdding(false);
-    loadShows();
+    await loadShows();
     revalidateCache();
   }
 
@@ -416,14 +416,14 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
       .eq("id", form.id!);
     if (error) throw new Error(error.message);
     setEditing(null);
-    loadShows();
+    await loadShows();
     revalidateCache();
   }
 
   async function handleDelete(id: string) {
     await supabase.from("shows").delete().eq("id", id);
     setDeleteConfirm(null);
-    loadShows();
+    await loadShows();
     revalidateCache();
   }
 
@@ -433,7 +433,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
       .update({ is_archived: true, archived_edition_id: editionId })
       .eq("id", show.id);
     setArchiving(null);
-    loadShows();
+    await loadShows();
     revalidateCache();
   }
 
