@@ -1,13 +1,36 @@
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentContainer } from "../components/ContentContainer";
-import { upcomingShows } from "../data/shows";
+import type { Show } from "../types/show";
 
 const TYPEWRITER_FONT_STYLE = { fontFamily: "RM Typerighter, monospace" };
 
 export default function ShowDetail() {
   const { date } = useParams<{ date: string }>();
-  const show = upcomingShows.find((s) => s.id === date);
+  const [show, setShow] = useState<Show | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/shows")
+      .then((r) => r.json())
+      .then((data: Show[]) => {
+        const match = Array.isArray(data) ? data.find((s) => s.id === date) : null;
+        setShow(match ?? null);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [date]);
+
+  if (loading) {
+    return (
+      <PageWrapper>
+        <ContentContainer>
+          <p className="text-center opacity-60" style={TYPEWRITER_FONT_STYLE}>Loading...</p>
+        </ContentContainer>
+      </PageWrapper>
+    );
+  }
 
   if (!show) {
     return (
@@ -48,12 +71,10 @@ export default function ShowDetail() {
               <strong className="opacity-80">Date:</strong>
               <p className="text-xl">{show.date}</p>
             </div>
-
             <div>
               <strong className="opacity-80">Venue:</strong>
               <p className="text-xl">{show.venue}</p>
             </div>
-
             <div>
               <strong className="opacity-80">Address:</strong>
               <a
@@ -65,7 +86,6 @@ export default function ShowDetail() {
                 {show.address}
               </a>
             </div>
-
             {(show.doorsOpen || show.showStarts) && (
               <div>
                 <p className="text-xl">
